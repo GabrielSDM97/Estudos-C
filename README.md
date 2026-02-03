@@ -1,2 +1,2 @@
 # Estudos C
- Materiais de estudo sobre a linguagem C.
+ Materiais de estudos sobre a linguagem C.
