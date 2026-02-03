@@ -1,0 +1,2 @@
+Ctrl + Shift + B = Compilar
+F5 - Compilar, Executar e Debugar
