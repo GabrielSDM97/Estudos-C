@@ -16,8 +16,6 @@ int main() {
   float número1, número2, resultado;
 
   do {
-    printf("Digite 2 números: ");
-    scanf("%f%f", &número1, &número2);
 
     do {
       printf("~~~~~~~~~~~~~~~~\n");
@@ -31,20 +29,34 @@ int main() {
       scanf("%d", &opção);
       if (opção < 0 || opção > 4)
         printf("\nOpção inválida, tente novamente!\n");
+      else if (opção >= 1 && opção <= 4) {
+        printf("Digite 2 números: ");
+        scanf("%f%f", &número1, &número2);
+      }
     } while(opção < 0 || opção > 4);
 
-    if (opção == 1)
+    switch (opção) {
+    case 1:
       resultado = número1 + número2;
-    else if (opção == 2)
-      resultado = número1 - número2;
-    else if (opção == 3)
-      resultado = número1 * número2;
-    else if (opção == 4)
-      resultado = número1 / número2;
-    else if (opção == 0)
       break;
+    case 2:
+      resultado = número1 - número2;
+      break;
+    case 3:
+      resultado = número1 * número2;
+      break;
+    case 4:
+      resultado = número1 / número2;
+      break;
+    case 0:
+      resultado = 0;
+    }
 
-    printf("\nResultado: %.2f\n\n", resultado);
-  } while (1); // Equivale a 'while True' em Python.
+    if (opção != 0)
+      printf("\nResultado: %.2f\n\n", resultado);
+
+  } while (opção != 0);
   printf("\n~~~~ Até mais!!! ~~~~\n\n");
+
+  return 0;
 }

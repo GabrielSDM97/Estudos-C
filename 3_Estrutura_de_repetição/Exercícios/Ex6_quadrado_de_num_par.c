@@ -9,9 +9,9 @@ int main() {
   int limite;
   printf("Insira um número: ");
   scanf("%d", &limite);
-  for (int valor = 1; valor <= limite; valor++) {
-    if (valor % 2 == 0)
-      printf("%d; ", valor*valor);
-  }
+  for (int valor = 2; valor <= limite; valor += 2)
+    printf("%d² = %d;\n", valor, valor*valor);
   printf("\n\n");
+
+  return 0;
 }

@@ -10,16 +10,17 @@
 */
 
 int main() {
-  int senha;
+  int senha, senhaCorreta = 123456;
 
   printf("Insira sua senha: ");
   scanf("%d", &senha);
   
-  while (senha != 123456) {
+  while (senha != senhaCorreta) {
     printf("Senha inválida, insira sua senha novamente: ");
     scanf("%d", &senha);
   }
 
   printf("Acesso Permitido!\n\n");
   
+  return 0;
 }

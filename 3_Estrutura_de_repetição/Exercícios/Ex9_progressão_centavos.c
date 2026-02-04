@@ -9,15 +9,14 @@
 */
 
 int main() {
-  int dia, centavos;
-  double reais;
-  centavos = 1;
+  int dia, centavos = 1, centavosFinal = 1;
 
-  for(dia = 1; dia <= 30; dia++) {
-    if (dia > 1)
-      centavos *= 2;
-    printf("%d; ", centavos);
+  for(dia = 2; dia <= 30; dia++) {
+    centavos *= 2;
+    centavosFinal += centavos;
   }
-  reais = centavos * 0.01;
-  printf("\n\nResultado ao fim dos 30 dias: R$%.2f\n\n", reais);
+
+  printf("\n\nResultado ao fim dos 30 dias: R$%.2f\n\n", centavosFinal * 0.01);
+
+  return 0;
 }

@@ -33,4 +33,5 @@ int main() {
   }
   printf("Iterações: %d; Soma de ímpares = %d;\n\n", iterações, somaImpar);
 
+  return 0;
 }

@@ -8,13 +8,27 @@
 */
 
 int main() {
-  int segundos, cinquenta_segundos;
-  float massa = 0.05;
-  segundos = 0;
+  int tempoSegundos = 0, opção;
+  float massaGramas;
 
-  while (massa >= 0.05) {
-    massa /= 2;
-    segundos += 50;
-  }
-  printf("O tempo necessário é de %d segundos.\n\n", segundos);
+  do {
+    tempoSegundos = 0;
+    printf("Insira um peso em gramas para um material radioativo: ");
+    scanf("%f", &massaGramas);
+    
+    while (massaGramas >= 0.05) {
+      massaGramas /= 2;
+      tempoSegundos += 50;
+      printf("Tempo: %d segundos; Massa em gramas: %.2f \n", tempoSegundos, massaGramas);
+    }
+
+    printf("\nTempo total: %d Segundos", tempoSegundos);
+    
+    printf("\n\nDeseja continuar? [Qualquer número]Sim; [0]Não: ");
+    scanf("%d", &opção);
+  } while (opção != 0);
+
+  printf("\n~~~~ Até logo! ~~~~");
+
+  return 0;
 }

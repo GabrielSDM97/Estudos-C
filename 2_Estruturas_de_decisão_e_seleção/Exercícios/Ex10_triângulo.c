@@ -23,8 +23,9 @@ int main(){
         else
             printf("escaleno.");
     }
-    else   
-    printf("não formam um triângulo!");
+    else
+      printf("não formam um triângulo!");
+    
     printf("\n\n");
 
     return 0;

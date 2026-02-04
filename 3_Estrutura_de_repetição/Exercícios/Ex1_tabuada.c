@@ -12,7 +12,8 @@ int main(){
     printf("Insira um número para fazer uma tabuada: ");
     scanf("%d", &multiplicador);
 
-    for (int multiplicando = 1; multiplicando <= 10; multiplicando++){
+    for (int multiplicando = 0; multiplicando <= 10; multiplicando++)
         printf("%d x %d = %d\n", multiplicador, multiplicando, multiplicador * multiplicando);
-    }
+    
+    return 0;
 }

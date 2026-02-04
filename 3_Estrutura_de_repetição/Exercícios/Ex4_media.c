@@ -26,5 +26,6 @@ int main() {
   }
 
   printf("\nNota 1: %.1f; Nota 2: %.1f\nMédia: %.1f\n\n", nota1, nota2, (nota1+nota2)/2);
-  
+
+  return 0;
 }
