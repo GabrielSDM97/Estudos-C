@@ -11,14 +11,18 @@ int main() {
 
   while (1) {
     número += 1;
-    if (número % 1 == 0 && número % 2 == 0 && número % 3 == 0 &&
-        número % 4 == 0 && número % 5 == 0 && número % 6 == 0 &&
-        número % 7 == 0 && número % 8 == 0 && número % 9 == 0 &&
-        número % 10 == 0) {
+
+    int contadorDivisões = 0;
+    for (int divisor = 1; divisor <= 10; divisor++) {
+      if (número % divisor == 0)
+        contadorDivisões++;
+    }
+
+    if (contadorDivisões == 10) {
       printf("O menor número inteiro que seja divisível por todos os números inteiros entre 1 e 10 é: %d\n\n", número);
       break;
-      }
     }
+  }
 
   return 0;
 }

@@ -15,7 +15,7 @@ int main() {
 
     for (divisor = 1; divisor <= número; divisor++)
       if (número % divisor == 0)
-        divisões += 1;
+        divisões++;
     
     if (divisões == 2)
       printf("O número %d é primo.\n\n", número);

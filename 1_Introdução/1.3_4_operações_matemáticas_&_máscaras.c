@@ -1,25 +1,30 @@
 #include <stdio.h>
-//#include <stdlib.h> 
+//#include <stdlib.h>
 
-/* 
+/*
 
-IMPORTANTE!! Os caracteres de escape funcionam em C da mesma forma que no Python (/n (quebra linha), /t (tabulação), etc...).
-Diferentemente de Python, a função 'print' em C não quebra linha automaticamente, sendo necessário utilizar '/n' para isso. 
+IMPORTANTE!! Os caracteres de escape funcionam em C da mesma forma que no Python
+(/n (quebra linha), /t (tabulação), etc...). Diferentemente de Python, a função
+'print' em C não quebra linha automaticamente, sendo necessário utilizar '/n'
+para isso.
+
 
 ~~~~~~~~~~~~~~~~~ Máscaras ~~~~~~~~~~~~~~~~~
+
 -- Padrão --
 '%c' = máscara que imprime UM caractere.
-'%d' = máscara que imprime números do tipo 'int' (signed).
-'%u' = máscara que imprime números do tipo 'unsigned int'. (assunto da aula 1.12 (intervalo) e 1.14 (tipo))
+'%d' = máscara que imprime números do tipo 'int' (signed)
+'%u' = máscara que imprime números do tipo 'unsigned int'. (assunto da aula 1.12(intervalo) e 1.14(tipo))
 '%f' = máscara que imprime números reais do tipo 'float'.
+'%lf' = máscara que imprime números reais do tipo 'double'.
+'%zu' = máscara que imprime números do tipo 'size_t'. (assunto da aula 1.10)
 
 -- Com long (assunto da aula 1.12) --
 '%lld' = máscara que imprime números inteiros do tipo 'long long int'.
-'%zu' = máscara que imprime números do tipo 'long unsigned int' ou 'size_t'. (assunto da aula 1.10)
-'%lf' = máscara que imprime números reais do tipo 'double'.
+'%llu' = máscara que imprime números inteiros do tipo 'unsigned long long int'.
 '%Lf' = máscara que imprime números reais do tipo 'long double'.
 '%Le' = máscara que imprime números reais do tipo 'long double' com notação científica.
-.
+
 IMPORTANTE! Não confundir caractere com string. String é uma SEQUÊNCIA de caracteres.
 
 */

@@ -11,14 +11,15 @@
 */
 
 int main() {
-  long long int trigoCasa = 1, totalTrigo = 1;
+  double trigoCasa = 1, totalTrigo = 1;
 
   for (int casaXadrez = 2; casaXadrez <= 64; casaXadrez++) {
+    printf("Grãos na casa %d: %.0lf    Grãos no total: %.0lf\n", casaXadrez, trigoCasa, totalTrigo);
     trigoCasa *= 2;
     totalTrigo += trigoCasa;
-    printf("%lld; ", totalTrigo);
   }
 
-  printf("O monge recebeu %lld grãos de trigo.\n\n", totalTrigo);
+  printf("\nO monge recebeu %.0lf grãos de trigo.\n\n", totalTrigo);
 
+  return 0;
 }

@@ -1,6 +1,10 @@
 #include <stdio.h>
 // #include <stdlib.h>
 
+int soma(int num1, int num2) {
+  return printf("%d\n\n",num1 + num2);
+}
+
 int main() {
   /*int abc;
   printf("Teste: ");
@@ -12,7 +16,15 @@ int main() {
   printf("fgetc= %c", abc);
   if (abc == 3)
     printf("AAAAAAAAAAAAAAAAAA");*/
+  printf("x\n");
 
-  printf("%d\n\n", 1%10);
+  int teste[4] = {12, 7, 4, 5 };
 
+  printf("%d\n", teste[1]);
+
+  soma(1,2);
+
+  printf("%d\n\n", 1 % 10);
+
+  return 0;
 }

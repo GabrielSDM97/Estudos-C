@@ -17,7 +17,7 @@ int main() {
 
   printf("-- Versão 1 --\n");
   for (int num = 1; num <= 1000; num++) {
-    iterações += 1;
+    iterações++;
     if (num % 2 != 0)
       somaImpar += num;
   }
@@ -28,7 +28,7 @@ int main() {
 
   printf("-- Versão 2 --\n"); 
   for (int num = 1; num <= 1000; num += 2) {
-    iterações += 1;
+    iterações++;
     somaImpar += num;
   }
   printf("Iterações: %d; Soma de ímpares = %d;\n\n", iterações, somaImpar);

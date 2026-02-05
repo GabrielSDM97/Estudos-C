@@ -8,20 +8,20 @@
 */
 
 int main() {
-  int número, contador, númerosPositivos = 0, númerosNegativos = 0;
+  int número, contadorNum, númerosPositivos = 0, númerosNegativos = 0;
 
-  contador = 0;
-  while (número != 0) {
-    contador += 1;
-    printf("Digite o %dº número: ", contador);
+  contadorNum = 0;
+   do {
+    contadorNum++;
+    printf("Digite o %dº número: ", contadorNum);
     scanf("%d", &número);
     if (número > 0)
-      númerosPositivos += 1;
+      númerosPositivos++;
     else if (número < 0)
-      númerosNegativos += 1;
-  }
+      númerosNegativos++;
+  } while (número != 0);
 
-  printf("\n\nQuantidade de números positivos: %d\nQuantidade de números negativos: %d\n\n", númerosPositivos, númerosNegativos);
+  printf("\nQuantidade de números positivos: %d\nQuantidade de números negativos: %d\n\n", númerosPositivos, númerosNegativos);
 
   return 0;
 }

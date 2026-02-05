@@ -31,7 +31,7 @@ int main() {
       menorIdade = idade;
 
     if ((sexo == 'F' || sexo == 'f') && salário <= 2000.00) // c)
-      qtdMulherSalário += 1;
+      qtdMulherSalário++;
 
     printf("Deseja continuar? [S/N] ");
     scanf(" %c", &opção);

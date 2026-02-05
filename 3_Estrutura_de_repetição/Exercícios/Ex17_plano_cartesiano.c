@@ -23,7 +23,7 @@
 int main() {
   int X, Y;
 
-  while (1) {
+  do {
     printf("Insira as coordenadas X e Y: ");
     scanf("%d%d", &X, &Y);
 
@@ -35,9 +35,8 @@ int main() {
       printf("X:%d; Y:%d --> Terceiro quadrante\n\n", X, Y);
     else if (X > 0 && Y < 0)
       printf("X:%d; Y:%d --> Quarto quadrante\n\n", X, Y);
-    else if (X == 0 || Y == 0)
-    break;
-  }
+
+  } while(X != 0 && Y != 0);
   printf("~~~~ Até logo! ~~~~");
       
   return 0;

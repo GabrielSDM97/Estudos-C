@@ -10,12 +10,12 @@
 int main() {
   int multiplicador, multiplicando, produto = 0;
 
-  printf("Insira dois números: ");
+  printf("Insira dois números inteiros: ");
   scanf("%d%d", &multiplicador, &multiplicando);
 
   for (int contador = 1 ; contador <= multiplicador; contador++)
     produto += multiplicando;
-  printf("%d x %d = %d\n\n", multiplicador, multiplicando, produto);
+  printf("%d * %d = %d\n\n", multiplicador, multiplicando, produto);
 
   return 0;
 }

@@ -2,27 +2,27 @@
 // #include <stdlib.h>
 
 /*
-    Para uma turma de 45 alunos, construa um programa que determine:
+    Para uma turma de 5 alunos, construa um programa que determine:
     a) A idade média dos alunos com menos de 1,70m de altura;
     b) A altura média dos alunos com mais de 20 anos.
 */
 
 int main() {
   float altura, somaAltura = 0;
-  int contadorGeral, contadorIdade = 0, contadorAltura = 0, idade, somaIdade = 0;
+  int contadorAluno, contadorIdade = 0, contadorAltura = 0, idade, somaIdade = 0;
 
-  for (contadorGeral = 1; contadorGeral <= 5; contadorGeral++) {
-    printf("\nDigite a idade e altura do %dº aluno: ", contadorGeral);
+  for (contadorAluno = 1; contadorAluno <= 5; contadorAluno++) {
+    printf("\nDigite a idade e altura do %dº aluno: ", contadorAluno);
     scanf("%d%f", &idade, &altura);
 
-    if (altura < 1.70) {
+    if (altura < 1.7) {
       somaIdade += idade;
-      contadorIdade += 1;
+      contadorIdade++;
     }
 
     if (idade > 20) {
       somaAltura += altura;
-      contadorAltura += 1;
+      contadorAltura++;
     }
   }
 

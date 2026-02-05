@@ -10,26 +10,26 @@
 
 int main() {
   int qtdFuncionários;
-  float salárioAlto, salárioBaixo, salárioTotal = 0, salário;
+  float salárioMaior, salárioMenor, salárioTotal = 0, salário;
   
   printf("Quantidade de funcionários: ");
   scanf("%d", &qtdFuncionários);
 
-  for (int funcionário = 1; funcionário <= qtdFuncionários; funcionário++) {
-    printf("Salário do %dº funcionário: R$", funcionário);
+  for (int idFuncionário = 1; idFuncionário <= qtdFuncionários; idFuncionário++) {
+    printf("Salário do %dº funcionário: R$", idFuncionário);
     scanf("%f", &salário);
 
-    if (funcionário == 1)
-      salárioAlto = salárioBaixo = salário;
-    else if (salário > salárioAlto)
-      salárioAlto = salário;
-    else if (salário < salárioBaixo)
-      salárioBaixo = salário;
+    if (idFuncionário == 1)
+      salárioMaior = salárioMenor = salário;
+    else if (salário > salárioMaior)
+      salárioMaior = salário;
+    else if (salário < salárioMenor)
+      salárioMenor = salário;
 
     salárioTotal += salário;
   }
 
-  printf("\nMédia salarial: R$%.2f\nSalário mais alto: R$%.2f\nSalário mais baixo: R$%.2f\n\n", salárioTotal/qtdFuncionários, salárioAlto, salárioBaixo);
+  printf("\nMédia salarial: R$%.2f\nMaior salário: R$%.2f\nMenor salário: R$%.2f\n\n", salárioTotal/qtdFuncionários, salárioMaior, salárioMenor);
 
   return 0;
 }
