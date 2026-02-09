@@ -22,7 +22,7 @@ int main() {
     validação = scanf("%d", &número);
   }
 
-  printf("Você inseriu o número %d!\n\n", número);
+  printf("Você inseriu o valor %d!\n\n", número);
 
   return 0;
 }
