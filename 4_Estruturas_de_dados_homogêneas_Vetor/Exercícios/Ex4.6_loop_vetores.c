@@ -17,7 +17,7 @@ int main() {
   srand(time(NULL));
 
   for (int índice = 0; índice < 10; índice++) {
-    vetorReal[índice] = 1 + rand() % 100;
+    vetorReal[índice] = 1 + rand() % 200;
   }
 
   do {
