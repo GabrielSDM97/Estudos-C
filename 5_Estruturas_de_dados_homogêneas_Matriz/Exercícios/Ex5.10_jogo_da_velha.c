@@ -8,11 +8,10 @@
 */
 
 int main() {
-  int linha, coluna, vitoriaX, vitoriaO, scoreX = 0, scoreO = 0, fimJogo = 0;
+  int linha, coluna, rodada = 0, vitória = 0, empate = 0, scoreX = 0, scoreO = 0, scoreEmpate = 0;
   char jogodaVelha[3][3], limpeza, jogador;
 
   do {
-
     // Opção de início
     while (jogador != 'x' && jogador != 'o') { 
       printf("\nDeseja iniciar com 'x' ou 'o'? ");
@@ -48,70 +47,36 @@ int main() {
     }
     printf("\n");
 
-    // Verificador de linhas
-    for (int linha = 0; linha < 3; linha++) { 
-      if (jogodaVelha[linha][0] == 'x' && jogodaVelha[linha][1] == 'x' && jogodaVelha[linha][2] == 'x')
-        vitoriaX = 1;
-      else if (jogodaVelha[linha][0] == 'o' && jogodaVelha[linha][1] == 'o' && jogodaVelha[linha][2] == 'o')
-        vitoriaO = 1;
+    // Verificador de linhas e colunas
+    for (int linha = 0; linha < 3; linha++) {
+      if (jogodaVelha[linha][0] == jogador && jogodaVelha[linha][1] == jogador && jogodaVelha[linha][2] == jogador)
+        vitória = 1;
+      else if (jogodaVelha[0][linha] == jogador && jogodaVelha[1][linha] == jogador && jogodaVelha[2][linha] == jogador)
+        vitória = 1;
     }
-    if (vitoriaX == 1 || vitoriaO == 1) {
-      fimJogo = 1;
-    }
-
-    // Verificador de colunas
-    if (fimJogo == 0) {
-      for (int coluna = 0; coluna < 3; coluna++) { 
-        if (jogodaVelha[0][coluna] == 'x' && jogodaVelha[1][coluna] == 'x' && jogodaVelha[2][coluna] == 'x')
-          vitoriaX = 1;
-        else if (jogodaVelha[0][coluna] == 'o' && jogodaVelha[1][coluna] == 'o' && jogodaVelha[2][coluna] == 'o')
-          vitoriaO = 1;
-      }
-      if (vitoriaX == 1 || vitoriaO == 1) {
-        fimJogo = 1;
-      }
-    }
-
-    // Verificador da diagonal principal
-    if (fimJogo == 0) {
-      if (jogodaVelha[0][0] == 'x' && jogodaVelha[1][1] == 'x' && jogodaVelha[2][2] == 'x')
-        vitoriaX = 1;
-      else if (jogodaVelha[0][0] == 'o' && jogodaVelha[1][1] == 'o' && jogodaVelha[2][2] == 'o')
-        vitoriaO = 1;
-      if (vitoriaX == 1 || vitoriaO == 1) {
-        fimJogo = 1;
-      }
-    }
-
-    // Verificador da  diagonal secundária
-    if (fimJogo == 0) {
-      if (jogodaVelha[0][2] == 'x' && jogodaVelha[1][1] == 'x' && jogodaVelha[2][0] == 'x')
-        vitoriaX = 1;
-      else if (jogodaVelha[0][2] == 'o' && jogodaVelha[1][1] == 'o' && jogodaVelha[2][0] == 'o')
-        vitoriaO = 1;
-      if (vitoriaX == 1 || vitoriaO == 1) {
-        fimJogo = 1;
-      }
+      
+    // Verificador da diagonal principal e secundária
+    if (vitória == 0) {
+      if (jogodaVelha[0][0] == jogador && jogodaVelha[1][1] == jogador && jogodaVelha[2][2] == jogador)
+        vitória = 1;
+      else if (jogodaVelha[0][2] == jogador && jogodaVelha[1][1] == jogador && jogodaVelha[2][0] == jogador)
+        vitória = 1;
     }
 
     // Verificador de empate
-    if (fimJogo == 0) {
-      int empate = 1;
-      for (int linha = 0; linha < 3; linha++) { 
-        for (int coluna = 0; coluna < 3; coluna++)
-          if (jogodaVelha[linha][coluna] != 'x' && jogodaVelha[linha][coluna] != 'o') {
-            empate = 0;
-            break;
-          }
-        if (empate == 0)
-          break;
-        else if (linha == 2)
-          fimJogo = 1;
-      }
-    }
+    if (rodada == 9)
+      empate = 1;
 
+    // Troca de jogadores
+    if (vitória == 0 && rodada > 0) {
+      if (jogador == 'x')
+        jogador = 'o';
+      else if (jogador == 'o')
+        jogador = 'x';
+    }
+    
     // Engine do jogo
-    if (fimJogo == 0) {
+    if (vitória == 0 && empate == 0) {
       int validaçãoLinha, validaçãoColuna, erro;
       do {
         erro = 0;
@@ -129,28 +94,25 @@ int main() {
           erro = 1;
           printf("Coordenada já preenchida, tente novamente!\n");
         }
-        else if (jogador == 'x'){
+        else if (jogador == 'x' || jogador == 'o'){
           jogodaVelha[linha-1][coluna-1] = jogador;
-          jogador = 'o';
-        }
-        else if (jogador == 'o'){
-          jogodaVelha[linha-1][coluna-1] = jogador;
-          jogador = 'x';
+          rodada++;
         }
       } while(erro == 1);
     } // Decisões após jogo finalizado (empate/vitória)
-    else if (fimJogo == 1) {
+    else if (vitória == 1 || empate == 1) {
       int validaçãojogarNovamente, jogarNovamente, erro;
-      if (vitoriaX == 1) {
-        printf("\nParabens Jogador 'x', você venceu!\n");
-        scoreX += 1;
+      if (vitória == 1) {
+        printf("Parabens Jogador '%c', você venceu!\n", jogador);
+        if (jogador == 'x')
+          scoreX += 1;
+        else if (jogador == 'o')
+          scoreO += 1;
       }
-      else if (vitoriaO == 1) {
-        printf("\nParabens Jogador 'o', você venceu!\n");
-        scoreO += 1;
+      else if (empate == 1) {
+        printf("EMPATE!!!\n");
+        scoreEmpate += 1;
       }
-      else if (vitoriaX == vitoriaO == 0)
-        printf("\nEMPATE!!!\n");
       do {
         erro = 0;
         printf("\nDeseja jogar novamente? [1 - Sim] [0 - Não]: ");
@@ -163,20 +125,18 @@ int main() {
           printf("Valor inválido, tente novamente!\n");
         }
       } while (erro == 1);
-      if (jogarNovamente == 0) 
-        fimJogo = 1;
-      else if (jogarNovamente == 1) {
+      if (jogarNovamente == 1) {
         jogador = ' ';
-        fimJogo = vitoriaO = vitoriaX = 0;
+        vitória = empate = rodada = 0;
         for (int linha = 0; linha < 3; linha++)
           for (int coluna = 0; coluna < 3; coluna++)
             jogodaVelha[linha][coluna] = ' ';
       }
     }
-  } while (fimJogo == 0);
-  printf("\n--------------------------\n");
-  printf("| Score: 'x': %d | 'o': %d |", scoreX, scoreO);
-  printf("\n--------------------------\n");
+  } while (vitória == 0 && empate == 0);
+  printf("\n---------------------------------------\n");
+  printf("| Score: 'x': %d | 'o': %d | empates: %d |", scoreX, scoreO, scoreEmpate);
+  printf("\n---------------------------------------\n");
 
   return 0;
 }
