@@ -8,7 +8,7 @@
 */
 
 int main() {
-  int linha, coluna, rodada = 0, vitória = 0, empate = 0, scoreX = 0, scoreO = 0, scoreEmpate = 0;
+  int coordLinha, coordColuna, rodada = 0, vitória = 0, empate = 0, scoreX = 0, scoreO = 0, scoreEmpate = 0;
   char jogodaVelha[3][3], limpeza, jogador;
 
   do {
@@ -48,10 +48,10 @@ int main() {
     printf("\n");
 
     // Verificador de linhas e colunas
-    for (int linha = 0; linha < 3; linha++) {
-      if (jogodaVelha[linha][0] == jogador && jogodaVelha[linha][1] == jogador && jogodaVelha[linha][2] == jogador)
+    for (int índice = 0; índice < 3; índice++) {
+      if (jogodaVelha[índice][0] == jogador && jogodaVelha[índice][1] == jogador && jogodaVelha[índice][2] == jogador)
         vitória = 1;
-      else if (jogodaVelha[0][linha] == jogador && jogodaVelha[1][linha] == jogador && jogodaVelha[2][linha] == jogador)
+      else if (jogodaVelha[0][índice] == jogador && jogodaVelha[1][índice] == jogador && jogodaVelha[2][índice] == jogador)
         vitória = 1;
     }
       
@@ -64,7 +64,7 @@ int main() {
     }
 
     // Verificador de empate
-    if (rodada == 9)
+    if (vitória == 0 && rodada == 9)
       empate = 1;
 
     // Troca de jogadores
@@ -81,24 +81,24 @@ int main() {
       do {
         erro = 0;
         printf("Digite a coordenada de '%c': ", jogador);
-        validaçãoLinha = scanf("%d", &linha);
-        validaçãoColuna = scanf("%d", &coluna);
-        if (validaçãoLinha == 0 || validaçãoColuna == 0 || linha < 1 || linha > 3 || coluna < 1 || coluna > 3) {
+        validaçãoLinha = scanf("%d", &coordLinha);
+        validaçãoColuna = scanf("%d", &coordColuna);
+        if (validaçãoLinha == 0 || validaçãoColuna == 0 || coordLinha < 1 || coordLinha > 3 || coordColuna < 1 || coordColuna > 3) {
           erro = 1;
           do { // Loop que remove todos os caracteres do buffer.
             limpeza = getchar();
           } while (limpeza != '\n'); // Quando chega na quebra de linha (Gerado após apertar ENTER), finaliza a limpeza.
           printf("Valor inválido, tente novamente!\n");
         }
-        else if (jogodaVelha[linha-1][coluna-1] == 'x' || jogodaVelha[linha-1][coluna-1] == 'o') {
+        else if (jogodaVelha[coordLinha-1][coordColuna-1] == 'x' || jogodaVelha[coordLinha-1][coordColuna-1] == 'o') {
           erro = 1;
           printf("Coordenada já preenchida, tente novamente!\n");
         }
         else if (jogador == 'x' || jogador == 'o'){
-          jogodaVelha[linha-1][coluna-1] = jogador;
+          jogodaVelha[coordLinha-1][coordColuna-1] = jogador;
           rodada++;
         }
-      } while(erro == 1);
+      } while (erro == 1);
     } // Decisões após jogo finalizado (empate/vitória)
     else if (vitória == 1 || empate == 1) {
       int validaçãojogarNovamente, jogarNovamente, erro;
