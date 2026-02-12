@@ -17,7 +17,7 @@ int main() {
 
   for (int linha = 0; linha < 7; linha++) {
     for (int coluna = 0; coluna < 7; coluna++)
-      coluna == diagonalSecundária ? printf("\t%d\t", matriz[linha][coluna]) : printf("\t.\t");
+      coluna == diagonalSecundária ? printf("\t%d", matriz[linha][coluna]) : printf("\t.");
     diagonalSecundária--;
     printf("\n"); 
   }

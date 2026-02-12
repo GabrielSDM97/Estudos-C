@@ -17,7 +17,7 @@ int main() {
 
   for (int linha = 0; linha < 5; linha++) {
     for (int coluna = 0; coluna < 5; coluna++)
-      coluna == diagonalPrincipal ? printf("\t%d\t", matriz[linha][coluna]) : printf("\t.\t");
+      coluna == diagonalPrincipal ? printf("\t%d", matriz[linha][coluna]) : printf("\t.");
     diagonalPrincipal++;
     printf("\n");
   }
@@ -25,4 +25,3 @@ int main() {
 
   return 0;
 }
-

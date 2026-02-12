@@ -14,7 +14,7 @@ int main() {
   for (int linha = 0; linha < 5; linha++) {
 
     for (int coluna = 0; coluna < 7; coluna++) {
-      matriz[linha][coluna] = 1 + rand() % 3;
+      matriz[linha][coluna] = 1 + rand() % 100;
       soma += matriz[linha][coluna];
       linha == 4 && coluna == 6 ? printf("\t%d \t= %d", matriz[linha][coluna], soma) : printf("\t%d \t+", matriz[linha][coluna]);
     }

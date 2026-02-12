@@ -20,7 +20,7 @@ int main() {
 
   for (int linha = 0; linha < 5; linha++) {
     for (int coluna = 0; coluna < 4; coluna++) {
-      printf("\t%d\t", matriz[linha][coluna]);
+      printf("\t%d", matriz[linha][coluna]);
     }
     printf("\n");
   }
@@ -28,7 +28,7 @@ int main() {
 
   for (int linha = 0; linha < 4; linha++) {
     for (int coluna = 0; coluna < 5; coluna++) {
-      printf("\t%d\t", matrizTransposta[linha][coluna]);
+      printf("\t%d", matrizTransposta[linha][coluna]);
     }
     printf("\n");
   }
