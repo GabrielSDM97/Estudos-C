@@ -26,7 +26,7 @@ int main() {
   printf("(Opção 1) Digite outra frase: ");
   scanf("%39[^\n]", frase);
 
-  getchar(); // Limpando o '\n' residual
+  getchar(); // Limpa o '\n' residual do buffer de teclado.
 
   índice = 0;
   while (frase[índice] != '\0') {

@@ -8,7 +8,8 @@ int main() {
   char frase[40];
 
   printf("Digite uma frase: ");
-  scanf("%39[^\n]" , frase);
+  scanf("%39[^\n]", frase);
+  getchar(); // Limpa o '\n' residual do buffer de teclado.
 
   /*
   // Outra maneira com 'fgets'
@@ -24,6 +25,14 @@ int main() {
   */
 
   tamanhoString = strlen(frase);
+
+  /*
+  -- 'strlen()' equivale a: --
+
+  while (frase[tamanhoString] != '\0') {
+    tamanhoString++;
+  }
+  */
 
   printf("Tamanho da array: %d\n\n", tamanhoString);
 

@@ -3,11 +3,14 @@
 
 int main() {
   char palavra[20] = {"Paralelogramo"};
-  char *letra; // O '*' indica ao programa que 'caractere' será um ponteiro.
+  char *letra; // O '*' indica ao programa que 'letra' será um ponteiro.
 
-  /* Um ponteiro armazena o endereço de, por exemplo, uma variável, ou seja,
-     toda vez que esse ponteiro for impresso ou chamado, ele retornará o valor referente à variável cujo endereço está no ponteiro. */
-
+  /*
+    Um ponteiro do tipo char* armazena um endereço de memória.
+    Ao usar %c, obtém o caractere naquela posição. Ao usar %s diretamente no ponteiro, imprime todos os caracteres daquela posição 
+    até encontrar o terminador '\0'. O ponteiro pode apontar para QUALQUER posição da string, não apenas a inicial.
+  */
+  
   // O ponteiro em sí também tem seu endereço na memória.
 
   // strchr(array, 'caractere') - Armazena a primeira instância de 'caractere' encontrado em array.
