@@ -6,24 +6,19 @@
 */
 
 int main() {
-  char frase[100], fraseContrário[100];
-  int índiceContrário = 0, tamanhoFrase;
+  char frase[100], fraseInversa[100];
+  int tamanhoFrase;
 
   printf("Digite uma frase: ");
   scanf("%99[^\n]", frase);
 
   tamanhoFrase = strlen(frase) - 1;
 
-  /*
-
-  */
-
-  for (int índice = tamanhoFrase; índice >= 0; índice--) {
-    fraseContrário[índiceContrário] = frase[índice];
-    índiceContrário++;
+  for (int índiceInverso = tamanhoFrase, índice = 0; índiceInverso >= 0; índiceInverso--, índice++) {
+    fraseInversa[índice] = frase[índiceInverso];
   }
     
-  printf("\n\nFrase: %s\nContrário: %s\n\n", frase, fraseContrário);
+  printf("\n\nFrase: %s\nContrário: %s\n\n", frase, fraseInversa);
   
   return 0;
 }

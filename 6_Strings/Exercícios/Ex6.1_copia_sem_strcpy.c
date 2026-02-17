@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 /*
-    Faça um programa para fazer uma cópia de uma string sem usar a função
-    strcpy.
+    Faça um programa para fazer uma cópia de uma string sem usar a função strcpy.
 */
 
 int main() {

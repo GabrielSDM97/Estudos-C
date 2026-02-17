@@ -12,7 +12,7 @@ int main() {
   printf("Minúscula: %c\n", minúsculo);
 
 
-  // Não existe função para converter uma string em maiúscula ou minúscula em Linux. É necessário criar uma função para isso.
+  // Não existe função para converter uma string em maiúscula ou minúscula em Linux. É necessário criar loops para isso.
 
   char frase[100] = {"Meu carro novo!"};
   char fraseMaiúscula[100], fraseMinúscula[100];
