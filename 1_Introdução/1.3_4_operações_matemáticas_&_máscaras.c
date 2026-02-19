@@ -14,6 +14,7 @@ para isso.
 -- Padrão --
 '%c' = máscara que imprime UM caractere.
 '%d' = máscara que imprime números do tipo 'int' (signed)
+'%o' = máscara que imprime número do tipo 'int' octais. (Variável 'int' que começa com 0, ex: 'int var = 032')
 '%u' = máscara que imprime números do tipo 'unsigned int'. (assunto da aula 1.12(intervalo) e 1.14(tipo))
 '%f' = máscara que imprime números reais do tipo 'float'.
 '%lf' = máscara que imprime números reais do tipo 'double'.

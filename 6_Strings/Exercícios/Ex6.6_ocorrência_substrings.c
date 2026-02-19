@@ -13,7 +13,7 @@ int main() {
 
     // Busca repetida pela substring
     while ((ponteiro = strstr(ponteiro, substring))) {
-        printf("Ponteiro_depois_de_strstr: \t%s\n", ponteiro);
+        printf("Depois_de_strstr: \t\t%s\n", ponteiro);
         contador++;
         ponteiro++; /* Avança 1 posição na memória, fazendo com que 'strstr()' busque uma nova combinação sequencial 
                        no restante da string que case com a 'substring'. Caso não encontre, retorna NULL e finaliza o loop. */
