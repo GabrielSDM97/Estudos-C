@@ -9,18 +9,19 @@ int main() {
   /* Função:
   retorno/tipo nomeFunção(parâmetro1, parâmetro2, etc...) {
     Argumentos...
-    return valor;
+    return valor; (Obrigatório)
   }
   */
 
   /* Procedimento:
   void nomeProcedimento(parâmetro1, parâmetro2, etc...) {
     Argumentos...
+    return; (Opcional)
   }
   */
 
-  // FUNÇÃO tem retorno, PROCEDIMENTO não.
-
+  // FUNÇÃO deve ter retorno com algum valor.
+  // PROCEDIMENTO pode ou não ter retorno, e este retorno deve ser sem valor, ou seja, apenas finalizará o procedimento.
 
   int teste = 0;
 
