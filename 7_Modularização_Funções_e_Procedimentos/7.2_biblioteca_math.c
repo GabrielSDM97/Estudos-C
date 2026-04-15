@@ -7,15 +7,15 @@ int main(){
 	Funções:
 
 	double cos(double x)
-	RETORNA: o valor do cosseno do �ngulo que foi informado como par�metro.
+	RETORNA: o valor do cosseno do ângulo que foi informado como parâmetro.
 	RECEBE: um ângulo em radianos.
 
 	double sin(double x)
-	RETORNA: o valor do seno do �ngulo que foi informado como par�metro.
+	RETORNA: o valor do seno do ângulo que foi informado como parâmetro.
 	RECEBE: um ângulo em radianos.
 
 	double tan(double x)
-	RETORNA: o valor da tangente do �ngulo que foi informado como par�metro.
+	RETORNA: o valor da tangente do ângulo que foi informado como parâmetro.
 	RECEBE: um ângulo em radianos.
 
 	double log(double x)
@@ -28,7 +28,7 @@ int main(){
 
 	double pow(double x, double y)
 	RETORNA: x elevado a y.
-	RECEBE: dois valores do tipo double, x e y, em que x ser� a base e y ser� o expoente.
+	RECEBE: dois valores do tipo double, x e y, em que x será a base e y será o expoente.
 
 	double sqrt(double x)
 	RETORNA: a raiz quadrada de x ou NaN se x for negativo.

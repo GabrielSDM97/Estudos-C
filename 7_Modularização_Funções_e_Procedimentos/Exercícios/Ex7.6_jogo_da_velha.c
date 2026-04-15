@@ -64,11 +64,10 @@ char resultadoRound(char matrizJogo[][3], char jogador) {
     empates++;
 
   // Limpa a matriz quando houver um vencedor ou empate.
-  if (vencedor != ' ') {
+  if (vencedor != ' ')
     for (int linha = 0; linha < 3; linha++)
       for (int coluna = 0; coluna < 3; coluna++)
         matrizJogo[linha][coluna] = ' ';
-  }
 
   return vencedor;
 }

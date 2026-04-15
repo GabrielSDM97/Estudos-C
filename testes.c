@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 // #include <stdlib.h>
 
 int soma(int num1, int num2) {
@@ -25,8 +26,6 @@ int main() {
   soma(1,2);
 
   printf("%d\n\n", 1 % 10);
-
-  
 
   return 0;
 }
