@@ -18,7 +18,7 @@ int main() {
 
   // Limitando a geração aleatória
   for (int i = 0; i <= 49; i++) {
-    vetor[i] = 100 + rand() % 900 ; // Entre 100 e 999.
+    vetor[i] = 50 + rand() % 500 ; // Entre 50 e (500 + 50 = 550).
     printf("vetor[%d] = %d\n", i, vetor[i]);
   }
 

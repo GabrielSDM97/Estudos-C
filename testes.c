@@ -17,15 +17,28 @@ int main() {
   printf("fgetc= %c", abc);
   if (abc == 3)
     printf("AAAAAAAAAAAAAAAAAA");*/
-  printf("x\n");
+  bool a = true;
+  bool b = false;
+  bool c = a || b;
+  printf("%s\n", b ? "true" : "false");
 
-  int teste[4] = {12, 7, 4, 5 };
+  int teste1[4] = {12, 7, 4, 5 };
 
-  printf("%d\n", teste[1]);
+  printf("%d\n", teste1[1]);
 
   soma(1,2);
 
   printf("%d\n\n", 1 % 10);
+
+  int númeroTeste = 1;
+  char palavraTeste[100];
+  while (númeroTeste != 0) {
+    printf("Palavra: ");
+    fgets(palavraTeste, 100, stdin);
+    printf("Número: ");
+    scanf("%d", &númeroTeste);
+    getchar();
+  }
 
   return 0;
 }

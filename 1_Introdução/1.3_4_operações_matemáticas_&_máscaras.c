@@ -33,7 +33,7 @@ IMPORTANTE! Não confundir caractere com string. String é uma SEQUÊNCIA de car
 int main() {
     printf("\t%d + %d = %d\n", 10, 15, 10+15); 
     printf("\t%d - %d = %d\n", 10, 15, 10-15);
-    printf("\t%d * %d = %d\n", 10, 15, 10*15);
-    printf("\t%d / %d = %.2f\n\n", 10, 15, 10.0/15); // Formatando máscaras 'float' = '.nf' em 'n' será a quantidade de casas decimais.
+    printf("\t%d * %d = %.5d\n", 10, 15, 10*15); // Formatando máscaras 'int' = '%.nd' em 'n' será a quantidade de casas da parte inteira.
+    printf("\t%d / %d = %.4f\n\n", 10, 15, 10.0/15); // Formatando máscaras 'float' = '%.nf' em 'n' será a quantidade de casas da parte decimal.
     return 0;
 }
