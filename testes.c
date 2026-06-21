@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 // #include <stdlib.h>
 
 int soma(int num1, int num2) {

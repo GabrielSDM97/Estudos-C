@@ -23,7 +23,6 @@ int main() {
   scanf("%99[^\n] %99[^\n]", registro.categoria, registro.marca);
   getchar();
 
-  printf("Data de fabricação: ");
   // A variável "registro" tem o campo "fabricação", que, por sua vez, tem os campos "dia", "mês" e "ano".
   registro.fabricação.dia = 1 + rand() % 31;
   registro.fabricação.mês = 1 + rand() % 6;

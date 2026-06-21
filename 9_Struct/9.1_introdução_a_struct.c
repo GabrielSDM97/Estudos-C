@@ -34,7 +34,7 @@ int main() {
 
   /* Não é possível atribuir uma string diretamente em um campo de uma variável
      do tipo struct, sendo necessário fazer uma cópia. */
-  strcpy(registro.categoria, "Bebidas");
+  Strcpy(registro.categoria, "Bebidas");
 
   printf("%d/%d/%d; Categoria: %s;\n\n", data.dia, data.mês, data.ano, registro.categoria);
 
