@@ -10,9 +10,11 @@ typedef struct {
 } Copia;
 
 void Strcpy(Copia *dest, const char *src) {
-  for (int i = 0; *(src + i) != '\0'; i++) {
+  int i = 0;
+  for (i = 0; *(src + i) != '\0'; i++) {
     dest->Frase[i] = *(src + i);
   }
+  dest->Frase[i] = '\0';
 }
 
 int main() {
