@@ -19,7 +19,7 @@ int main() {
   *p = 10;
 
   printf("Endereço: %p Antes: %d\n\n", p, *p);
-  // A função "free(ponteiro)" libera memória alocada por malloc, calloc ou realloc.
+  // A função "free(ponteiro)" libera memória alocada por "malloc", "calloc" ou "realloc".
   free(p);
   printf("Endereço: %p Depois: %d\n\n", p, *p);
 
