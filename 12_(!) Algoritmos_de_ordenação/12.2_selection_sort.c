@@ -23,7 +23,7 @@
  * =====================================================================
  */
 
-void mergeSort(int vetor[], int tamanho) {
+void selectionSort(int vetor[], int tamanho) {
   int i, j, indiceMenor, copia;
   // Loop externo: Define a fronteira da parte ordenada.
   // Paramos em 'size - 1' pois, ao posicionar n-1 elementos, o último já estará no lugar.
@@ -66,7 +66,7 @@ int main() {
   printf("Vetor original:\n");
   imprimirVetor(vet, tam);
 
-  mergeSort(vet, tam);
+  selectionSort(vet, tam);
   
   printf("Vetor ordenado:\n");
   imprimirVetor(vet, tam);

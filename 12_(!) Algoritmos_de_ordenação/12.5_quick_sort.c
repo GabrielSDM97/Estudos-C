@@ -6,63 +6,51 @@
  * =====================================================================
  * Algoritmo: Quick Sort (Ordenação Rápida)
  * =====================================================================
- * Algoritmo de divisão e conquista que:
- * 1. Escolhe um elemento como pivô (neste caso, o último elemento)
- * 2. Particiona o vetor: menores que o pivô à esquerda, maiores à direita
- * 3. Aplica recursivamente o mesmo processo nas duas subpartições
+ * Ideia Central: Escolhe um pivô, particiona o vetor (menores à esquerda,
+ * maiores à direita) e aplica recursivamente nas duas partições.
  *
- * Complexidade de Tempo:
- * - Melhor/Médio caso: O(n log n) - Quando o pivô divide o vetor balanceadamente
- * - Pior caso:         O(n²)       - Quando o pivô é sempre o menor/maior elemento
- *                                     (ex: vetor já ordenado com pivô no final)
+ * Complexidade:
+ * - Melhor/Médio: O(n log n) - Pivô divide balanceadamente
+ * - Pior caso:    O(n²)      - Pivô sempre extremo (vetor já ordenado)
+ * Espaço: O(log n) - Pilha de recursão
  *
  * Propriedades:
- * - Instável:    Não mantém a ordem relativa de elementos iguais.
- * - In-place:    Não requer memória extra para o vetor, mas usa O(log n) 
- *                de espaço na pilha de recursão.
- * - Não adaptativo: Não se beneficia de vetores "quase" ordenados.
- * - Vantagem:    Na prática, é o algoritmo de ordenação mais rápido para 
- *                a maioria dos casos, graças à sua eficiência de cache e 
- *                baixo overhead constante.
+ * - Instável:    Não mantém ordem de elementos iguais
+ * - In-place:    Não usa memória extra para o vetor
+ * - Mais rápido na prática para arrays (excelente uso de cache)
  * =====================================================================
  */
 
-// Função auxiliar para trocar dois elementos de posição
+// Troca dois elementos de posição
 void trocar(int *a, int *b) {
   int copia = *a;
   *a = *b;
   *b = copia;
 }
 
-// Particiona o vetor e retorna o índice do pivô
+// Particiona o vetor e retorna o índice final do pivô
 int particionar(int vetor[], int início, int fim) {
-  // Pivô: último elemento do sub-vetor
-  int pivo = vetor[fim];
-  // Índice que marca a fronteira dos elementos menores
-  int i = início;
-  // Percorre o sub-vetor comparando cada elemento com o pivô
-  for (int j = início; j < fim; j++)
-    // Se o elemento é menor ou igual ao pivô, coloca na partição esquerda
+  int pivo = vetor[fim];  // Pivô: último elemento
+  int i = início;         // Fronteira dos elementos menores
+  // Move elementos menores que o pivô para a esquerda
+  for (int j = início; j < fim; j++) {
     if (vetor[j] <= pivo) {
       trocar(&vetor[i], &vetor[j]);
-      // Avança a fronteira dos menores
       i++;
     }
+  }
   // Coloca o pivô na posição correta (entre menores e maiores)
   trocar(&vetor[i], &vetor[fim]);
-  // Retorna o índice final do pivô
   return i;
 }
 
-// Função principal do Quick Sort (recursiva):
-void mergeSort(int vetor[], int início, int fim) {
+// Função principal: particiona e ordena recursivamente
+void quickSort(int vetor[], int início, int fim) {
   if (início < fim) {
-    // Particiona o vetor e obtém o índice final do pivô
-    int meio = particionar(vetor, início, fim);
-    // Ordena recursivamente a partição esquerda (elementos menores que o pivô)
-    mergeSort(vetor, início, meio - 1);
-    // Ordena recursivamente a partição direita (elementos maiores que o pivô)
-    mergeSort(vetor, meio + 1, fim);
+    int meio = particionar(vetor, início, fim);  // Índice do pivô
+    
+    quickSort(vetor, início, meio - 1);   // Ordena partição esquerda
+    quickSort(vetor, meio + 1, fim);      // Ordena partição direita
   }
 }
 
@@ -88,7 +76,7 @@ int main() {
   printf("Vetor original:\n");
   imprimirVetor(vet, tam);
 
-  mergeSort(vet, 0, tam - 1);
+  quickSort(vet, 0, tam - 1);
   
   printf("Vetor ordenado:\n");
   imprimirVetor(vet, tam);

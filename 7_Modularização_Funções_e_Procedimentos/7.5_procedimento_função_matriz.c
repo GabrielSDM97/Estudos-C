@@ -65,7 +65,7 @@ int main() {
   return 0;
 }
 
-/* É possível também fazer parâmetros dinâmicos de matriz, exemplo:
+/* É possível também fazer parâmetros que recebam uma quantidade específica de linhas e colunas, exemplo:
 
    void procedimento(int linhas, int colunas, int matriz[linhas][colunas]) {} */
 

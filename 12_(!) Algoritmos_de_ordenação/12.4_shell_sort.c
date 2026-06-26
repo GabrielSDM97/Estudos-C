@@ -6,48 +6,37 @@
  * =====================================================================
  * Algoritmo: Shell Sort (Ordenação por Inserção com Intervalos)
  * =====================================================================
- * Evolução do Insertion Sort que compara elementos 
- * distantes entre si usando uma sequência de intervalos (gaps). 
- * Começa com gaps grandes para mover elementos rapidamente para perto 
- * de suas posições finais, e vai reduzindo até gap=1 (Insertion Sort puro).
+ * Ideia Central: Evolução do Insertion Sort que compara elementos distantes
+ * usando intervalos (gaps). Começa com gaps grandes para mover elementos
+ * rapidamente, reduzindo até gap=1 (Insertion Sort puro em vetor quase ordenado).
  *
- * Complexidade de Tempo:
- * - Depende da sequência de gaps utilizada:
- *   * Shell (original): O(n²)
- *   * Hibbard: O(n^1.5)
- *   * Knuth: O(n^1.25)
- *   * Sedgewick: O(n^1.33)
+ * Complexidade:
+ * - Depende da sequência de gaps: O(n²) a O(n^1.25)
  * - Melhor caso: O(n log n)
+ * Espaço: O(1) - In-place
  *
  * Propriedades:
- * - Instável:    Não mantém a ordem relativa de elementos iguais.
- * - In-place:    Não requer memória extra.
- * - Adaptativo:  Eficiente para vetores "quase" ordenados.
- * - Vantagem:    Quebra a barreira O(n²) dos métodos simples, sendo muito
- *                mais rápido que Insertion/Bubble/Selection para vetores grandes.
+ * - Instável:    Não mantém ordem de elementos iguais
+ * - In-place:    Não usa memória extra
+ * - Adaptativo:  Eficiente para vetores "quase" ordenados
+ * - Quebra barreira O(n²) dos métodos simples
  * =====================================================================
  */
 
-void mergeSort(int vetor[], int tamanho) {
+void shellSort(int vetor[], int tamanho) {
   int gap, i, j, chave;
-  // Loop externo: Controla a sequência de gaps (intervalos)
-  // Começa com size/2 e vai reduzindo pela metade até chegar a 1
+  // Loop externo: Controla a sequência de gaps (começa com tamanho/2, reduz pela metade)
   for (gap = tamanho / 2; gap > 0; gap /= 2) {
     // Loop intermediário: Percorre o vetor a partir do índice 'gap'
-    // Cada elemento será inserido na posição correta dentro de sua subsequência
     for (i = gap; i < tamanho; i++) {
-      // Armazena o elemento atual que será inserido na subsequência
-      chave = vetor[i];
-      // Loop interno: Desloca elementos maiores que a chave dentro da subsequência
-      // A comparação é feita com elementos distantes 'gap' posições
+      chave = vetor[i];  // Elemento a ser inserido na subsequência
+      // Loop interno: Desloca elementos maiores que a chave (distância 'gap')
       for (j = i; j >= gap && vetor[j - gap] > chave; j -= gap)
-        // Move o elemento para a direita (dentro da subsequência)
         vetor[j] = vetor[j - gap];
-      vetor[j] = chave;
+      vetor[j] = chave;  // Insere na posição correta
     }
   }
-  // Quando gap=1, o algoritmo executa um Insertion Sort puro,
-  // mas agora o vetor já está "quase ordenado" graças aos gaps anteriores
+  // Quando gap=1, executa Insertion Sort puro em vetor já "quase ordenado"
 }
 
 void imprimirVetor(int vetor[], int tamanho) {
@@ -72,7 +61,7 @@ int main() {
   printf("Vetor original:\n");
   imprimirVetor(vet, tam);
 
-  mergeSort(vet, tam);
+  shellSort(vet, tam);
   
   printf("Vetor ordenado:\n");
   imprimirVetor(vet, tam);

@@ -6,45 +6,36 @@
  * =====================================================================
  * Algoritmo: Insertion Sort (Ordenação por Inserção)
  * =====================================================================
- * Constrói a parte ordenada do vetor inserindo um elemento 
- * de cada vez na posição correta. É análogo a organizar cartas de baralho 
- * na mão: pegamos uma carta e a encaixamos entre as que já estamos segurando.
+ * Ideia Central: Constrói a parte ordenada inserindo um elemento de cada
+ * vez na posição correta. Análogo a organizar cartas de baralho na mão.
  *
- * Complexidade de Tempo:
- * - Pior caso:  O(n²)  (Vetor em ordem inversa)
- * - Melhor caso: O(n)  (Vetor já ordenado — apenas uma comparação por elemento)
- * - Médio caso: O(n²)
+ * Complexidade:
+ * - Pior caso:  O(n²) - Vetor em ordem inversa
+ * - Melhor caso: O(n)  - Vetor já ordenado
+ * Espaço: O(1) - In-place
  *
  * Propriedades:
- * - Estável:    Mantém a ordem relativa de elementos com valores iguais.
- * - In-place:   Não requer memória extra, apenas deslocamentos.
- * - Adaptativo: Extremamente eficiente para vetores "quase" ordenados,
- *               pois faz poucas comparações e deslocamentos.
- * - Ideal para: Pequenos conjuntos de dados (muitas bibliotecas usam 
- *               Insertion Sort para vetores pequenos em algoritmos híbridos).
+ * - Estável:    Mantém ordem de elementos iguais
+ * - In-place:   Não usa memória extra
+ * - Adaptativo: Extremamente eficiente para vetores "quase" ordenados
+ * - Ideal para: Pequenos conjuntos de dados (usado em algoritmos híbridos)
  * =====================================================================
  */
 
-void mergeSort(int vetor[], int tamanho) {
+void insertionSort(int vetor[], int tamanho) {
   int i, chave, j;
-  // Loop externo: Percorre o vetor a partir do segundo elemento (índice 1)
-  // O elemento na posição 0 já está trivialmente ordenado.
+  // Percorre o vetor a partir do segundo elemento (índice 1)
+  // O elemento na posição 0 já está trivialmente ordenado
   for (i = 1; i < tamanho; i++) {
-    // Armazena o elemento atual que será inserido na parte ordenada
-    // Precisamos guardá-lo porque vamos deslocar elementos maiores para a direita
-    chave = vetor[i];
-    // Índice do último elemento da parte ordenada (imediatamente antes da chave)
-    j = i - 1;
-    // Loop interno: Desloca elementos maiores que a chave uma posição para a direita
-    // Isso abre um "espaço vazio" para inserirmos a chave na posição correta
+    chave = vetor[i];  // Elemento a ser inserido na parte ordenada
+    j = i - 1;         // Último elemento da parte ordenada
+    // Desloca elementos maiores que a chave uma posição para a direita
+    // Abre "espaço vazio" para inserir a chave na posição correta
     while (j >= 0 && vetor[j] > chave) { 
-      vetor[j + 1] = vetor[j]; // Move o elemento para a direita
-      j--;                     // Avança para o próximo elemento da parte ordenada
+      vetor[j + 1] = vetor[j];  // Move elemento para a direita
+      j--;
     }
-    // Insere a chave no espaço que foi aberto pelo deslocamento.
-    // Note que 'j' parou na posição do elemento menor ou igual à chave, 
-    // então a posição correta é 'j + 1'.
-    vetor[j + 1] = chave; 
+    vetor[j + 1] = chave;  // Insere na posição correta ('j + 1')
   }
 }
 
@@ -70,7 +61,7 @@ int main() {
   printf("Vetor original:\n");
   imprimirVetor(vet, tam);
 
-  mergeSort(vet, tam);
+  insertionSort(vet, tam);
   
   printf("Vetor ordenado:\n");
   imprimirVetor(vet, tam);
