@@ -45,8 +45,8 @@ int main() {
 
   Produto cadastro = retornarDatas();
 
-  Strcpy(cadastro.categoria, "Refrigerante");
-  Strcpy(cadastro.marca, "Coca-cola");
+  strcpy(cadastro.categoria, "Refrigerante");
+  strcpy(cadastro.marca, "Coca-cola");
 
   imprimirDados(cadastro);
 

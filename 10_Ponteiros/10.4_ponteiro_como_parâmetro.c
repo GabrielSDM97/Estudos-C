@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-// Acessando o conteúdo da variável apontada pelo ponteiro.
+// Declarando um procedimento com parâmetro de ponteiro.
 void procedimento(int *num) {
-  // Alterando o conteúdo da variável apontada pelo ponteiro.
+  // Utilizando desrefência para acessar e alterar o conteúdo do endereço apontado pelo parâmetro.
   *num = 100;
 }
 

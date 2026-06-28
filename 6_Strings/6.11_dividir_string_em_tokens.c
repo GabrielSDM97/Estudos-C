@@ -8,6 +8,7 @@ int main() {
   // 1º parâmetro: inicia a tokenização da string 'frase'
   // 2º parâmetro: aqui fica os delimitadores. No caso abaixo teremos espaço em branco, ponto e vírgula (" .,").
   // A função substitui toda instância dos delimitadores na string por '\0' e retorna o endereço do primeiro token.
+  // Em outras palavras, "strtok" mantem as strings intactas na memória, apenas trocando os caracteres delimitadores por '\0'.
   ponteiro = strtok(frase, " .,");
 
   // Loop para exibir todos os tokens encontrados até o final da string

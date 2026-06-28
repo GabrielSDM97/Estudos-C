@@ -8,7 +8,9 @@ int main() {
 
   printf("Palavra 1: %s\nPalavra 2: %s\n", palavra1, palavra2);
 
-  // strcpy(ArrayDestino, ArrayFonte) - Copia strings.
+  /* Pelo fato de não ter como atribuir uma string diretamente a uma array após
+     sua declaração, utiliza-se "strcpy" para fazê-lo. */
+  // strcpy(ArrayDestino, ArrayFonte).
   strcpy(palavra2, palavra1);
 
   printf("Palavra 1: %s\nPalavra 2: %s\n", palavra1, palavra2);
