@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-// É possível criar função de tipo ponteiro.
+// É possível criar um ponteiro como função.
 int *alocarMemória(int qtd) {
-  int *ponteiro = malloc(10 * sizeof(int));
+  int *ponteiro = malloc(qtd * sizeof(int));
   return ponteiro;
 }
 
@@ -21,16 +21,16 @@ void imprimirVetor(int *array, int size) {
 }
 
 int main() {
-  int *vetor;
+  int *vetor, tamanho = 10;
 
   srand(time(NULL));
 
-  vetor = alocarMemória(10);
+  vetor = alocarMemória(tamanho);
 
   if (vetor) {
     printf("Memória alocada com sucesso!\n");
-    preencherVetor(vetor, 10);
-    imprimirVetor(vetor, 10);
+    preencherVetor(vetor, tamanho);
+    imprimirVetor(vetor, tamanho);
   }
   else
     printf("Erro na alocação!\n");

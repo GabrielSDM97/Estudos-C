@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// O tipo primitivo ao lado do nome da função define o tipo de dado que ela deve retornar (return).
 // Função que calcula o tamanho da frase.
 int tamanhoString(char texto[100]) {
   int tamanhoString = 0;

@@ -18,15 +18,14 @@ int main() {
        Parâmetros:
        1º (&registro): Endereço de memória para onde copiar os dados
        2º (sizeof(Pessoa)): Quantidade de bytes de cada elemento a ser lido
-       3º (1): Quantidade de elementos a ler (neste caso, 1 struct)
+       3º (1): Quantidade de elementos a serem lidos (neste caso, 1 struct)
        4º (arquivo): Ponteiro do arquivo de origem
        
-       Retorno: A função retorna a quantidade de elementos lidos com sucesso.
-       - Retorna 1: Leu 1 struct completa (sucesso)
-       - Retorna 0: Não conseguiu ler nada (fim do arquivo ou erro)
+       Retorno: A função retorna a quantidade de elementos lidos com sucesso,
+       ou retorna 0 quando não conseguiu ler nada (fim do arquivo ou erro).
        
        O loop "while" continua enquanto o retorno for diferente de 0, ou seja,
-       enquanto conseguir ler structs completas do arquivo. */
+       enquanto conseguir ler structs do arquivo. */
     while ((retorno = fread(&registro, sizeof(Pessoa), 1, arquivo)))
       printf("\tRetorno: %d Nome: %s Idade: %d\n", retorno, registro.nome, registro.idade);
     fclose(arquivo);

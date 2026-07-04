@@ -11,8 +11,8 @@ struct Data {
 };
 
 // 2ª Forma de criar uma struct (Recomendada).
-/* "Typedef" renomeia toda a struct para o nome após a chave que fecha essa
-    estrutura, no caso, para "Cadastro", ou seja, este será o nome do novo tipo de dado. */
+/* "Typedef" renomeia toda a struct para o apelido após a chave que fecha essa
+    estrutura, no caso, para "Produto", ou seja, este será o apelido do novo tipo de dado. */
 typedef struct{
   char categoria[100];
 } Produto;

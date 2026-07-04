@@ -4,7 +4,7 @@ int main() {
 
   FILE *cadastros = fopen("ArquivoDeTexto.txt", "r");
   char nomes[100];
-  int i;
+  int i, teste;
 
   if (cadastros) {
     /* A função "feof()" retorna 0 se o ponteiro não estiver no fim do arquivo.
@@ -42,13 +42,13 @@ int main() {
 
     /* A função "fgets" pega strings até descobrir uma quebra de linha "\n",
        ou até chegar no limite de tamanho (no caso abaixo, 100), ou até
-    chegar no fim do arquivo. O ponteiro do arquivo é avançado a cada
-    caractere lido da string; quando a função termina, o ponteiro já fica
-    posicionado no início da próxima linha. Ela também retorna o endereço
-    inicial do vetor que recebeu a string. O "if" abaixo com o "fgets"
-    verifica se o retorno não é NULL, o que garante que paramos de imprimir
-    quando chegamos ao fim do arquivo. Note que linhas vazias (que contêm
-    apenas o "\n") também serão impressas. */
+       chegar no fim do arquivo. O ponteiro do arquivo é avançado a cada
+       caractere lido da string; quando a função termina, o ponteiro já fica
+       posicionado no início da próxima linha. Ela também retorna o endereço
+       inicial do vetor que recebeu a string. O "if" abaixo com o "fgets"
+       verifica se o retorno não é NULL, o que garante que paramos de imprimir
+       quando chegamos ao fim do arquivo. Note que linhas vazias (que contêm
+       apenas o "\n") também serão impressas. */
     printf("\nfgets:\n");
     while (fgets(nomes, 100, cadastros)) {
       printf("%s", nomes);
