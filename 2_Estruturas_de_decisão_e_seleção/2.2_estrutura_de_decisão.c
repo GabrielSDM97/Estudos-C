@@ -5,9 +5,10 @@ int main(){
 
     // DICA: As chaves '{ }' são opcionais SE tiver apenas uma instrução dentro de uma condicional, EXEMPLO:
     if('x') // Como podemos ver, qualquer coisa diferente de '0' será verdadeiro, até mesmo 0.0001 ou um caractere.
-        printf("Verdadeiro\n\n");
+      printf("Verdadeiro\n\n");
     else
-        printf("Falso\n\n");
+      printf("Falso\n\n");
+    // A regra das chaves citada acima se aplica também para estruturas de repetição (for, while, etc...).
 
 
     // Estrutura encadeada (if...else if...else) e aninhada (if dentro de if)

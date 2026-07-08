@@ -1,0 +1,32 @@
+ =====================================================================
+                           GRAFOS (Graphs)
+ =====================================================================
+ Origem: Matemática. Representa relações entre objetos.
+
+ ==== Exemplos práticos ==== 
+ 1. Redes sociais (usuários e amizades).
+ 2. Mapas e GPS (cidades e estradas).
+ 3. Redes de computadores (máquinas e cabos).
+ 4. Fluxo de dependências (matérias e pré-requisitos).
+
+ ==== Componentes principais ==== 
+ - Vértices (Nós): Os objetos em si.
+ - Arestas (Arcos): As conexões/relacionamentos entre os vértices.
+
+ ==== Tipos de Grafos ====
+ 1. Direcionado (Digrafo): A aresta tem mão única (A -> B).
+ 2. Não-Direcionado: A aresta é bidirecional (A <-> B).
+ 3. Ponderado (ou Valorado): As arestas têm "pesos" (ex: distância, custo).
+ 4. Não-Ponderado: As arestas não têm pesos (apenas a conexão importa).
+ *Nota: Um grafo pode ser Direcionado e Ponderado ao mesmo tempo.
+
+ ==== Formas de Representação em Memória (Estruturas de Dados) ==== 
+ Como guardamos o grafo no C (não são algoritmos de busca, mas a estrutura):
+ 1. Matriz de Adjacência: Array 2D. Boa para grafos densos (muitas arestas).
+ 2. Lista de Adjacência: Array de listas encadeadas. Boa para grafos esparsos (poucas conexões).
+ 3. Matriz de Incidência: Matriz Vértices x Arestas. Menos comum no dia a dia.
+
+ ==== Algoritmos clássicos de Grafos (O que roda em cima da estrutura) ==== 
+ - Busca em Largura (BFS) e Profundidade (DFS).
+ - Caminho mínimo (Dijkstra).
+ ==========================================================================

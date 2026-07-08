@@ -1,0 +1,108 @@
+ =====================================================================
+                         MATRIZ DE INCIDÊNCIA
+ =====================================================================
+ Características:
+ - NÃO é uma matriz quadrada!
+ - Dimensão: V x E (V = vértices, E = arestas)
+ - Linhas = vértices (A, B, C, D...)
+ - Colunas = arestas (1, 2, 3, 4...)
+ 
+ Diferença para Matriz de Adjacência:
+ - Adjacência: foca em "quais vértices estão conectados"
+ - Incidência: foca em "quais arestas incidem em quais vértices"
+
+ =====================================================================
+ EXEMPLO 1: GRAFO NÃO-DIRECIONADO (G.N.D.)
+ =====================================================================
+              1  
+         A ←⎯⎯⎯⎯⎯⎯⎯→ B
+         ↑       ↙↗ ↑
+         │   3 ↙↗   │
+       2 │   ↙↗     │ 4
+         ↓ ↙↗       ↓
+         C ←⎯⎯⎯⎯⎯⎯⎯→ D
+              5
+ 
+ Matriz de Incidência (0 ou 1):
+ 
+       1  2  3  4  5
+     ┌──────────────
+   A │ 1  1  0  0  0  
+   B │ 1  0  1  1  0
+   C │ 0  1  1  0  1
+   D │ 0  0  0  1  1
+ 
+ Explicação:
+ - Valor 1: vértice participa da aresta
+ - Valor 0: vértice NÃO participa da aresta
+ 
+ Exemplos:
+ - Aresta 1 (A-B): A=1, B=1 (ambos conectados)
+ - Aresta 2 (A-C): A=1, C=1 (ambos conectados)
+ - Aresta 3 (B-C): B=1, C=1 (ambos conectados)
+ - Aresta 4 (B-D): B=1, D=1 (ambos conectados)
+ - Aresta 5 (C-D): C=1, D=1 (ambos conectados)
+ 
+ NOTA: Cada coluna tem EXATAMENTE dois 1's (uma aresta conecta 2 vértices)
+
+ =====================================================================
+ EXEMPLO 2: GRAFO DIRECIONADO (G.D.)
+ =====================================================================
+              1  
+         A ⎯⎯⎯⎯⎯⎯⎯⎯→ B
+         ↑       ↙  ↑
+         │   3 ↙    │
+       2 │   ↙      │ 4
+         │ ↙        │
+         C ⎯⎯⎯⎯⎯⎯⎯⎯→ D
+              5
+ 
+ Matriz de Incidência (-1, 0, 1):
+ 
+        1   2   3   4   5
+     ┌───────────────────
+   A │ -1   1   0   0   0  
+   B │  1   0  -1   1   0
+   C │  0  -1   1   0  -1
+   D │  0   0   0  -1   1
+ 
+ Explicação:
+ - Valor -1: aresta SAÍ do vértice (origem/tail)
+ - Valor +1: aresta CHEGA no vértice (destino/head)
+ - Valor  0: vértice NÃO participa da aresta
+ 
+ Exemplos:
+ - Aresta 1 (A→B): A=-1 (saída), B=1 (chegada)
+ - Aresta 2 (C→A): C=-1 (saída), A=1 (chegada)
+ - Aresta 3 (B→C): B=-1 (saída), C=1 (chegada)
+ - Aresta 4 (D→B): D=-1 (saída), B=1 (chegada)
+ - Aresta 5 (C→D): C=-1 (saída), D=1 (chegada)
+ 
+ NOTA: Cada coluna tem UM -1 e UM +1 (origem e destino)
+
+ =====================================================================
+ VANTAGENS E DESVANTAGENS
+ =====================================================================
+ 
+ Vantagens:
+ ✓ Representa bem grafos com múltiplas arestas entre mesmos vértices
+ ✓ Útil para algoritmos de fluxo em redes
+ ✓ Clara representação de direção (no caso direcionado)
+ 
+ Desvantagens:
+ ✗ Consumo de memória: O(V × E) - pode ser grande!
+ ✗ Grafos esparsos = muitos zeros = desperdício
+ ✗ Verificar se dois vértices são adjacentes: O(E) - lento!
+ ✗ Menos intuitiva que matriz de adjacência
+ 
+ QUANDO USAR?
+ - Algoritmos de fluxo máximo (Ford-Fulkerson)
+ - Grafos com arestas múltiplas (multigrafos)
+ - Quando precisa rastrear arestas individualmente
+ 
+ QUANDO EVITAR?
+ - Grafos com muitas arestas (E ≈ V²)
+ - Precisa verificar adjacência rapidamente
+ - Uso geral → Prefira Matriz ou Lista de Adjacência!
+ 
+ =====================================================================

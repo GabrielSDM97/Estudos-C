@@ -8,6 +8,7 @@
       "args": [
         "-g",
         "${file}",
+        "-lm", // Necessário para utilizar funções da biblioteca 'math.h'
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}"
       ],

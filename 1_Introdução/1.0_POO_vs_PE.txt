@@ -1,0 +1,52 @@
+
+    ============ Programação Estruturada (C) ============ 
+
+    === Foco nas Ações (Verbos) ===
+    O programa é visto como uma sequência de tarefas.
+    A mentalidade é focada no "como fazer" (o processamento).
+
+    == Dados e Funções Separados ==
+    As variáveis (dados) e as funções (comportamento)
+    são entidades independentes. As funções recebem os dados,
+    processam e devolvem o resultado.
+
+    == Fluxo Lógico (Top-Down) ==
+    O código é organizado de cima para baixo, usando estruturas de
+    controle básicas de blocos: sequência, decisão (if/else) e repetição
+    (for/while).
+
+    == Como é no C ==
+    Você cria uma struct com os dados (ex: Carro) e escreve funções soltas no
+    código (ex: acelerar(&Carro)) que recebem essa struct como parâmetro para
+    modificá-la. Não há proteção nativa dos dados.
+
+
+    ===== Programação Orientada a Objetos (C++, Java) =====
+
+    == Foco nos Atores (Substantivos) ==
+    O programa é modelado como uma interação entre "objetos"
+    que representam entidades do mundo real.
+    A mentalidade é focada no "quem faz o quê".
+
+    == Encapsulamento (Dados + Comportamento juntos) ==
+    Dados (atributos) e funções (métodos) vivem dentro
+    do mesmo bloco (a Classe/Objeto).
+    O objeto é o "dono" dos seus dados e controla quem pode acessá-los.
+
+    === Os 3 Pilares ===
+    == Encapsulamento ==
+    Protege os dados, expondo apenas o necessário através de métodos.
+
+    == Herança ==
+    Permite criar classes novas baseadas em classes já
+    existentes (reuso de código).
+
+    == Polimorfismo ==
+    Permite que objetos diferentes respondam à
+    mesma chamada de método de formas distintas.
+
+    == Como é em Java/C++ ==
+    Você cria uma Classe Carro que já nasce com
+    seus dados (velocidade) e seus métodos (acelerar()).
+    Você não passa o carro para uma função; você manda o
+    próprio carro executar a ação: meuCarro.acelerar().

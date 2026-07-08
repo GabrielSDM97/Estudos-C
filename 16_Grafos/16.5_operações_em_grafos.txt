@@ -1,0 +1,14 @@
+Operações Comuns em Grafos
+
+Aqui estão algumas operações comuns que você pode realizar em grafos.
+
+- Inserir Vértice: Adicionar um novo vértice ao grafo.
+- Inserir Aresta: Adicionar uma nova aresta entre dois vértices.
+- Remover Vértice: Remover um vértice e todas as arestas associadas a ele.
+- Remover Aresta: Remover uma aresta entre dois vértices.
+
+- Busca em Largura (BFS): Um algoritmo usado para explorar o grafo de forma "em largura", 
+visitando primeiro os vizinhos mais próximos.
+
+- Busca em Profundidade (DFS): Um algoritmo para explorar o grafo em "profundidade", 
+indo o mais longe possível de cada vértice antes de voltar.
