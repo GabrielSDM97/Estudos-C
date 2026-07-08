@@ -1,0 +1,92 @@
+ =====================================================================
+                         MATRIZ DE ADJACÊNCIA
+ =====================================================================
+ Características:
+ - Sempre será uma matriz quadrada (V x V, onde V = número de vértices)
+ - Cada linha/coluna representa um vértice (A, B, C, D...)
+ - Valor 1 = existe aresta | Valor 0 = não existe aresta
+
+ =====================================================================
+ EXEMPLO 1: GRAFO NÃO-DIRECIONADO (G.N.D.)
+ =====================================================================
+
+         A ←⎯⎯⎯⎯⎯⎯⎯→ B
+         │ ↘↖    ↙↗ │
+         │   ↘↖↙↗   │
+         │   ↙↗↘↖   │
+         │ ↙↗    ↘↖ │
+         C ←⎯⎯⎯⎯⎯⎯⎯→ D
+
+ Matriz de Adjacência (SIMÉTRICA - espelha na diagonal):
+
+       A  B  C  D
+     ┌───────────
+   A │ 0  1  0  1
+   B │ 1  0  1  0
+   C │ 0  1  0  1
+   D │ 1  0  1  0
+
+ Explicação:
+ - A-B: → matriz[A][B] = 1 E matriz[B][A] = 1
+ - A-D: → matriz[A][D] = 1 E matriz[D][A] = 1
+ - B-C: → matriz[B][C] = 1 E matriz[C][B] = 1
+ - C-D: → matriz[C][D] = 1 E matriz[D][C] = 1
+
+ NOTA: Em grafos não-direcionados, a matriz SEMPRE é simétrica!
+       (matriz[i][j] == matriz[j][i])
+
+ =====================================================================
+ EXEMPLO 2: GRAFO DIRECIONADO (G.D.)
+ =====================================================================
+
+         A ⎯⎯⎯⎯⎯⎯⎯⎯→ B
+         │ ↘↖    ↙  │
+         │   ↘↖↙    │
+         │   ↙ ↘↖   │
+         │ ↙     ↘↖ │
+         C ⎯⎯⎯⎯⎯⎯⎯⎯→ D
+
+ Matriz de Adjacência (NÃO necessariamente simétrica):
+
+       A  B  C  D
+     ┌───────────
+   A │ 0  1  0  1
+   B │ 0  0  1  0
+   C │ 0  0  0  1
+   D │ 1  0  0  0
+
+ Explicação:
+ - A→B: → matriz[A][B] = 1
+ - A→D: → matriz[A][D] = 1
+ - B→C: → matriz[B][C] = 1
+ - C→D: → matriz[C][D] = 1
+ - D→A: → matriz[D][A] = 1
+ 
+ NOTA: Em grafos direcionados, a matriz PODE ser assimétrica!
+
+ =====================================================================
+ VANTAGENS E DESVANTAGENS
+ =====================================================================
+ 
+ Vantagens:
+ ✓ Verificar se existe aresta: O(1) - acesso direto
+ ✓ Simples de implementar (array 2D)
+ ✓ Bom para grafos densos (muitas arestas)
+ 
+ Desvantagens:
+ ✗ Consumo de memória: O(V²) - sempre!
+ ✗ Grafos esparsos (poucas arestas) = muitos zeros = desperdício
+   Exemplo: 1000 vértices mas só 50 arestas → 1.000.000 de células,
+            sendo 999.950 zeros!
+ ✗ Listar vizinhos de um vértice: O(V) - precisa varrer linha inteira
+ 
+ QUANDO USAR?
+ - Grafo denso (muitas conexões)
+ - Precisa verificar existência de aresta rapidamente
+ - Número de vértices não é muito grande
+ 
+ QUANDO EVITAR?
+ - Grafo esparso (poucas conexões) → Use Lista de Adjacência!
+ - Memória é crítica
+ 
+ =====================================================================

@@ -10,6 +10,8 @@ int main() {
      conseguir, retorna NULL. */
   valor = malloc(sizeof(int));
 
+  // Condicional que verifica se a alocação de memória ocorreu corretamente. 
+  // Faz-se sempre necessária ao alocar memória.
   if (valor) {
     printf("Memória alocada com sucesso!\n");
     printf("Endereço do ponteiro: \t\t%p \nEndereço alocado pelo malloc:   %p\n", &valor, valor);

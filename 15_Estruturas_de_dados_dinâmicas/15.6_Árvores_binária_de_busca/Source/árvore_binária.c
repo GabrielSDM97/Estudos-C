@@ -1,4 +1,4 @@
-#include "../Header/15.6_árvore_binária.h"
+#include "../Header/árvore_binária.h"
 #include <stdio.h>
 #include <stdlib.h>
 

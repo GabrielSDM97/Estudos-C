@@ -1,14 +1,15 @@
+/* As aspas "" indicam ao compilador buscar primeiro no diretório atual do
+   arquivo, e depois nos diretórios padrão. Ideal para arquivos do próprio projeto. */
+#include "../Header/pilha.h"
 /* Os símbolos <> indicam bibliotecas do sistema/standard library que o
    compilador busca em diretórios padrão pré-configurados. */
 #include <stdio.h>
 #include <stdlib.h>
-/* As aspas "" indicam ao compilador buscar primeiro no diretório atual do
-   arquivo, e depois nos diretórios padrão. Ideal para arquivos do próprio projeto. */
-#include "../Header/15.2_pilha.h"
 
-/* Use o comando "gcc 15.2_main.c 15.2_pilha.c -o programa && ./programa" para
-   compilar os 2 arquivos de códigos funcionais "main.c" e "15.2_pilha.c"
-   para que o linker encontre as definições das funções declaradas no header "15.2_pilha.h". */
+/* Use o comando "gcc main.c pilha.c -o programa && ./programa" para
+   compilar os 2 arquivos de códigos funcionais "main.c" e "pilha.c"
+   para que o linker encontre as definições das funções declaradas
+   no header "pilha.h". */
 
 int main() {
   Nó *pilha = criarPilha(), *valorDesempilhado;

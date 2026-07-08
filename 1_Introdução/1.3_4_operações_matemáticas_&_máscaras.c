@@ -31,6 +31,7 @@ IMPORTANTE! Não confundir caractere com string. String é uma SEQUÊNCIA de car
 */
 
 int main() {
+    // printf("Conteúdo e máscaras", argumento1, argumento2, ...);
     printf("\t%d + %d = %d\n", 10, 15, 10+15); 
     printf("\t%d - %d = %d\n", 10, 15, 10-15);
     printf("\t%d * %d = %.5d\n", 10, 15, 10*15); // Formatando máscaras 'int' = '%.nd' em 'n' será a quantidade de casas da parte inteira.

@@ -1,4 +1,4 @@
-#include "../Header/15.5_lista.h"
+#include "../Header/lista.h"
 #include <stdio.h>
 #include <stdlib.h>
 

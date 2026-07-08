@@ -13,12 +13,12 @@
 /* IMPORTANTE: O algorítmo de lista simplesmente ligada abaixo é uma das
    formas de fazer tal estrutura. Existem muitas outras maneiras de fazê-la. */
 
-/* Use o comando "gcc 15.5_main.c 15.5_lista.c -o programa && ./programa" para
-   compilar os 2 arquivos de códigos funcionais "main.c" e "15.5_lista.c" para
+/* Use o comando "gcc main.c lista.c -o programa && ./programa" para
+   compilar os 2 arquivos de códigos funcionais "main.c" e "lista.c" para
    que o linker encontre as definições das funções declaradas no header
-   "15.5_lista.h". */
+   "lista.h". */
 
-#include "../Header/15.5_lista.h"
+#include "../Header/lista.h"
 #include <stdio.h>
 #include <stdlib.h>
 

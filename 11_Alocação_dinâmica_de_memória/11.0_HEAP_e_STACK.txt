@@ -1,0 +1,44 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                         GERENCIAMENTO DE MEMÓRIA EM C                        ║
+║                                 STACK vs HEAP                                ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Em programação, existem estruturas de dados estáticas (STACK) e dinâmicas
+(HEAP). Vetores e matrizes, por exemplo, são estruturas de dados estáticas,
+ou seja, ao serem declaradas, uma região na STACK é reservada automaticamente
+pelo compilador, fazendo com que tal região não possa ser alterada manualmente.
+Já uma estrutura de dado dinâmica, ou seja, alocada manualmente pelo programador
+fica na HEAP, e essa pode oscilar a quantidade de regiões conforme inserção ou 
+remoção de dados.
+
+────────────────────────────────────────────────────────────────────────────────
+1. STACK (PILHA) - Memória Estática
+────────────────────────────────────────────────────────────────────────────────
+
+A STACK é uma região de memória de acesso rápido, gerenciada automaticamente
+pelo compilador. Funciona a parti da lógica de pilha: o último a entrar é o
+primeiro a sair (LIFO - Last In, First Out). Qualquer conteúdo declarado fora de
+uma região de memória alocada manualmente, fica na STACK.
+
+CARACTERÍSTICAS:
+• Alocação e liberação automáticas feitas pelo compilador
+• Tamanho fixo e conhecido em tempo de compilação
+• Acesso muito rápido
+• Espaço limitado (tipicamente alguns MB)
+
+
+────────────────────────────────────────────────────────────────────────────────
+2. HEAP (MONTÍCULO) - Memória Dinâmica
+────────────────────────────────────────────────────────────────────────────────
+
+A HEAP é uma região de memória maior e mais flexível, gerenciada manualmente
+pelo programador. É como um grande armazém onde você pode solicitar e devolver
+espaço conforme necessário. Todo conteúdo inserido ou declarado em uma região
+alocada manualmente fica na HEAP.
+
+CARACTERÍSTICAS:
+• Alocação manual pelo programador (malloc, calloc e realloc)
+• Liberação de memória manual pelo programador (free)
+• Tamanho definido em tempo de execução
+• Espaço muito maior (tipicamente GB)
+• Acesso mais lento que a STACK

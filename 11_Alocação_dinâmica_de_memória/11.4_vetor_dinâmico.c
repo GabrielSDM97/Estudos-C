@@ -2,9 +2,26 @@
 #include <stdlib.h>
 #include <time.h>
 
-// É possível criar um ponteiro como função.
-int *alocarMemória(int qtd) {
-  int *ponteiro = malloc(qtd * sizeof(int));
+/*
+VETOR ESTÁTICO: int vetor[10];
+• Alocado automaticamente na STACK pelo compilador
+• Tamanho fixo e conhecido em tempo de compilação
+• Liberação automática ao sair do escopo
+• O nome do vetor é o próprio endereço dos dados: (&vetor == vetor)
+
+VETOR DINÂMICO: int *vetor = malloc(10 * sizeof(int));
+• Alocado manualmente na HEAP pelo programador
+• Tamanho definido em tempo de execução
+• Liberação manual obrigatória com free()
+• O ponteiro (STACK) aponta para os dados (HEAP): (&vetor != vetor)
+
+Este código demonstra alocação dinâmica, onde a função 'alocarMemória'
+retorna um ponteiro para um bloco de memória na HEAP.
+*/
+
+// É possível criar funções que retornam ponteiro.
+int *alocarMemória(int size) {
+  int *ponteiro = malloc(size * sizeof(int));
   return ponteiro;
 }
 

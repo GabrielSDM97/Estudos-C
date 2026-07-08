@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-// Declarando um procedimento com ponteiro como parâmetro.
+// Declarando um procedimento com parâmetro que recebe ponteiro.
 void procedimento(int *num) {
   // Utilizando desrefência para acessar e alterar o conteúdo do endereço apontado pelo parâmetro.
   *num = 100;
 }
 
-// Pelo fato de o vetor ser um ponteiro, podemos utilizá-lo como parâmetro com "*" também.
+// Pelo fato de o vetor ser semelhante a um ponteiro, podemos utilizá-lo como parâmetro com "*" também.
 void procedimentoVetor(int *vetor /* ou vetor[] */) {
   for (int i = 0; i < 2; i++)
     printf("vetor[%d]: %d\n", i, vetor[i]);

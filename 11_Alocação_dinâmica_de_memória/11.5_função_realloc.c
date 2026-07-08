@@ -2,15 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* Em programação, existem estruturas de dados estáticas (STACK) e dinâmicas
-   (HEAP). Vetores e matrizes, por exemplo, são estruturas de dados estáticas,
-   ou seja, se definirmos um tamanho 'x' para um vetor, tal vetor sempre terá
-   esse quantidade de regiões. Já uma estrutura de dado dinâmica, oscila a
-   quantidade de regiões conforme inserção ou remoção de dados. */
-
-/* Dito isso, a função "realloc" não aumenta um vetor, mas sim copia os dados do
-   vetor e os envia para uma nova região da memória com o novo tamanho definido.
- */
+/* A função "realloc" não aumenta um vetor, mas sim copia os dados do
+   vetor e os envia para uma nova região da memória com o novo tamanho definido. */
 
 int *alocarMemória(int size) {
   int *ponteiro = malloc(size * sizeof(int));
@@ -43,9 +36,9 @@ int main() {
   printf("\n\nInsira um novo tamanho para o vetor: ");
   scanf("%d", &tamanho);
   printf("\n");
-  // Utilizando realloc(ponteiro, novo tamanho).
+  // Sintaxe: realloc(ponteiro, novo tamanho).
   vetor = realloc(vetor, tamanho * sizeof(int));
-  // Nova verificação de realocação.
+  // Nova verificação de realocação de memória.
   if (vetor) {
     printf("Realocação efetuada com sucesso!\n");
     printf("Tamanho do vetor: %d\n", tamanho);

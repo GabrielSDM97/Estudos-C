@@ -2,6 +2,25 @@
 #include <stdlib.h>
 #include <time.h>
 
+/*
+MATRIZ ESTÁTICA: int matriz[5][5];
+• Alocada automaticamente na STACK pelo compilador
+• Tamanho fixo e conhecido em tempo de compilação
+• Liberação automática ao sair do escopo
+• É um "array de arrays" contíguo na memória
+• O nome da matriz é o endereço da primeira linha (&matriz == matriz)
+
+MATRIZ DINÂMICA: int **matriz = malloc(5 * sizeof(int *));
+• Alocada manualmente na HEAP pelo programador
+• Tamanho definido em tempo de execução
+• Liberação manual obrigatória com free() (linha por linha + vetor de ponteiros)
+• É um "ponteiro de ponteiros": cada linha pode estar em um local diferente da HEAP
+• O ponteiro (STACK) aponta para um vetor de ponteiros (HEAP) que apontam para os dados (HEAP)
+
+Este código demonstra alocação dinâmica de matriz 2D, onde 'matriz' é um ponteiro
+de ponteiros que referencia um vetor de ponteiros, cada um apontando para uma linha.
+*/
+
 int main() {
   srand(time(NULL));
   /* Para fazer uma matriz, é necessário um ponteiro de ponteiro, já que uma

@@ -32,12 +32,12 @@
    tal estrutura. Existem muitas outras maneiras de fazê-la.
 */
 
-/* Use o comando "gcc 15.6_main.c 15.6_árvore_binária.c -o programa && ./programa" para
-   compilar os 2 arquivos de códigos funcionais "main.c" e "15.6_árvore_binária.c" para
+/* Use o comando "gcc main.c árvore_binária.c -o programa && ./programa" para
+   compilar os 2 arquivos de códigos funcionais "main.c" e "árvore_binária.c" para
    que o linker encontre as definições das funções declaradas no header
-   "15.5_lista.h". */
+   "árvore_binária.h". */
 
-#include "../Header/15.6_árvore_binária.h"
+#include "../Header/árvore_binária.h"
 #include <stdio.h>
 
 int main() {

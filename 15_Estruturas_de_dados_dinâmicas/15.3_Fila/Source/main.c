@@ -1,11 +1,17 @@
-/* IMPORTANTE: O algorítmo de fila com prioridade abaixo é uma das formas de
-   fazer tal estrutura. Existem muitas outras maneiras de fazê-la. */
+/* Fila = Estrutura de dados onde o primeiro dado inserido é o primeiro a
+   sair (First In First Out = FIFO). */
 
-/* Use o comando "gcc 15.4_main.c 15.4_fila.c -o programa && ./programa" para
-   compilar os 2 arquivos de códigos funcionais "main.c" e "15.4_fila.c"
-   para que o linker encontre as definições das funções declaradas no header "15.4_fila.h". */
+/* Uma fila é composta por nós, onde cada nó tera um valor e o ponteiro para o
+   PRÓXIMO nó na fila. */
 
-#include "../Header/15.4_fila.h"
+/* IMPORTANTE: O algorítmo de fila abaixo é uma das formas de fazer tal estrutura.
+   Existem muitas outras maneiras de fazê-la. */
+
+/* Use o comando "gcc main.c fila.c -o programa && ./programa" para
+   compilar os 2 arquivos de códigos funcionais "main.c" e "fila.c"
+   para que o linker encontre as definições das funções declaradas no header "fila.h". */
+
+#include "../Header/fila.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -23,13 +29,14 @@ int main() {
       printf("Até logo!\n\n");
       break;
     case 1:
-      printf("Digite a idade da pessoa a entrar na fila: ");
+      printf("Digite um valor a ser enfileirado: ");
       scanf("%d", &valor);
       enfileirar(fila, valor);
       break;
     case 2:
       if (fila->nóInicial) {
-        printf("Idade da pessoa que foi atendida: %d\n", (valorDesenfileirado = desenfileirar(fila))->valor);
+        printf("Valor desenfileirado: %d\n",
+               (valorDesenfileirado = desenfileirar(fila))->valor);
         free(valorDesenfileirado);
         break;
       }
@@ -37,7 +44,7 @@ int main() {
       break;
     case 3:
       if (fila->nóInicial) {
-        printf("Início da fila: ");
+        printf("Início: ");
         imprimir(fila->nóInicial);
         break;
       }

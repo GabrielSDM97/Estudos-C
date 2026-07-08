@@ -1,0 +1,77 @@
+ =====================================================================
+                          LISTA DE ADJACÊNCIA
+ =====================================================================
+ Características:
+ - É um ARRAY de LISTAS ENCADEADAS.
+ - Cada índice do array representa um vértice.
+ - Cada lista armazena os vértices adjacentes (vizinhos) daquele índice.
+ - Complexidade de memória: O(V + E) - Muito mais eficiente que matrizes!
+ 
+ Quando usar?
+ - Quase sempre! É a representação padrão na vida real e em entrevistas.
+ - Principalmente para grafos esparsos (poucas arestas em relação aos vértices).
+
+ =====================================================================
+ EXEMPLO 1: GRAFO NÃO-DIRECIONADO (G.N.D.)
+ =====================================================================
+
+         A ←⎯⎯⎯⎯⎯⎯⎯→ B
+         ↑ ↘↖       ↑
+         │   ↘↖     │
+         │     ↘↖   │
+         ↓       ↘↖ ↓
+         C ←⎯⎯⎯⎯⎯⎯⎯→ D
+
+ Lista de nós vizinhos/adjacêntes (Apresenta simetria)
+
+      [A] -> [B] -> [C] -> [D] -> NULL
+      [B] -> [A] -> [D] -> NULL
+      [C] -> [A] -> [D] -> NULL
+      [D] -> [A] -> [B] -> [C] -> NULL
+
+ Explicação:
+ - Se existe aresta A-B, B aparece na lista de A, e A aparece na lista de B.
+ - Lista de A: vizinhos são B, C e D.
+ - Lista de B: vizinhos são A e D.
+ - Lista de C: vizinhos são A e D.
+ - Lista de D: vizinhos são A, B e C.
+
+ =====================================================================
+ EXEMPLO 2: GRAFO DIRECIONADO (G.D.)
+ =====================================================================
+
+         A ←⎯⎯⎯⎯⎯⎯⎯⎯ B
+         ↑ ↘        ↑
+         │   ↘      │
+         │     ↘    │
+         │       ↘  │
+         C ←⎯⎯⎯⎯⎯⎯⎯⎯ D
+
+ Lista de nós vizinhos/adjacêntes (Não apresenta simetria)
+
+      [A] -> [D] -> NULL
+      [B] -> [A] -> NULL
+      [C] -> [A] -> NULL
+      [D] -> [B] -> [C] -> NULL
+
+ Explicação:
+ - A aresta só é adicionada na lista de quem a "origina".
+ - Lista de A: só aponta para D (A -> D).
+ - Lista de B: só aponta para A (B -> A).
+ - Lista de C: só aponta para A (C -> A).
+ - Lista de D: aponta para B e C (D -> B, D -> C).
+
+ =====================================================================
+ VANTAGENS E DESVANTAGENS
+ =====================================================================
+ 
+ Vantagens:
+ ✓ Economia de memória: O(V + E). Só aloca o que existe de verdade.
+ ✓ Listar todos os vizinhos de um vértice: O(grau do vértice) - Rápido!
+ ✓ Fácil adicionar novos vértices (basta aumentar o array ou usar lista dinâmica).
+ 
+ Desvantagens:
+ ✗ Verificar se existe aresta entre A e B: O(grau de A) - Mais lento que a matriz O(1).
+ ✗ Implementação um pouco mais complexa em C (exige structs e ponteiros).
+ 
+ =====================================================================

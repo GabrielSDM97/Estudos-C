@@ -3,10 +3,10 @@
 /* IMPORTANTE: O algorítmo de pilha abaixo é uma das formas de fazer tal estrutura.
    Existem muitas outras maneiras de fazê-la. */
 
+// Incluindo arquivos de cabeçalho.
+#include "../Header/pilha.h"
 #include <stdio.h>
 #include <stdlib.h>
-// Incluindo arquivores de cabeçalho.
-#include "../Header/15.2_pilha.h"
 
 /* O valor NULL poderia ser inserido diretamente no ponteiro "pilha" em "main()", 
    porém isso violaria os princípios de TAD, pois dados não devem ser manipulados diretamente, 
