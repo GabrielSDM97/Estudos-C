@@ -1,7 +1,6 @@
 Right-Left Rule
 
 The "right-left" rule is a simple rule to decipher C declarations.
-Cover image by Brett Jordan on Unsplash.
 
 Table of Contents
 - Reference
@@ -12,9 +11,11 @@ Table of Contents
   - Illegal combinations
   - About typedef
 
+
 Reference
 - Reference of the "right-left" rule: https://cseweb.ucsd.edu/~ricko/rt_lt.rule.html
 - A website to decipher C declarations: https://cdecl.org/
+
 
 Elements
 - x (identifier): x is
@@ -23,6 +24,7 @@ Elements
 - *: pointer to
 - []: array of
 - (): function returning
+
 
 Rule
 1. Start from the identifier.
@@ -38,6 +40,7 @@ int *b();          // b is a function returning a pointer to an integer
 int (*c[])();      // c is an array of pointers to functions returning an integer
 int (*d())[];      // d is a function returning a pointer to an array of integers
 
+
 Illegal combinations
 - [](): cannot have an array of functions.
   You should use an array of pointers to functions.
@@ -47,6 +50,7 @@ Illegal combinations
 
 - ()[]: cannot have a function that returns an array.
   You should use a function returning a pointer to dynamically allocated memory.
+
 
 About typedef
 This rule can also be applied to typedef.
