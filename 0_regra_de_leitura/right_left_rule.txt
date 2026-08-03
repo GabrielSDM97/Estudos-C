@@ -1,0 +1,61 @@
+Right-Left Rule
+
+The "right-left" rule is a simple rule to decipher C declarations.
+Cover image by Brett Jordan on Unsplash.
+
+Table of Contents
+- Reference
+- Elements
+- Rule
+- Examples
+- Remarks
+  - Illegal combinations
+  - About typedef
+
+Reference
+- Reference of the "right-left" rule: https://cseweb.ucsd.edu/~ricko/rt_lt.rule.html
+- A website to decipher C declarations: https://cdecl.org/
+
+Elements
+- x (identifier): x is
+- int (type): integer
+- const: constant
+- *: pointer to
+- []: array of
+- (): function returning
+
+Rule
+1. Start from the identifier.
+2. Move right until out of symbols or a right parenthesis is hit.
+3. Move left until out of symbols or a left parenthesis is hit.
+4. Then repeat steps 2 and 3 alternately until all symbols are consumed.
+
+P.S. Symbols that have already been encountered should be ignored.
+
+Examples
+int (*a)[];        // a is a pointer to an array of integers
+int *b();          // b is a function returning a pointer to an integer
+int (*c[])();      // c is an array of pointers to functions returning an integer
+int (*d())[];      // d is a function returning a pointer to an array of integers
+
+Illegal combinations
+- [](): cannot have an array of functions.
+  You should use an array of pointers to functions.
+
+- ()(): cannot have a function that returns a function.
+  You should use first-class functions in C++.
+
+- ()[]: cannot have a function that returns an array.
+  You should use a function returning a pointer to dynamically allocated memory.
+
+About typedef
+This rule can also be applied to typedef.
+
+For example:
+
+typedef struct {
+    ...
+} *PType[10];
+
+// typedef struct { ... } *PType[10];
+// PType is an array (with size 10) of pointers to struct { ... }.
