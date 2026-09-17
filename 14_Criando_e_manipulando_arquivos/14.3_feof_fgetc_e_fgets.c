@@ -45,7 +45,7 @@ int main() {
        chegar no fim do arquivo. O ponteiro do arquivo é avançado a cada
        caractere lido da string; quando a função termina, o ponteiro já fica
        posicionado no início da próxima linha. Ela também retorna o endereço
-       inicial do vetor que recebeu a string. O "if" abaixo com o "fgets"
+       inicial do vetor que recebeu a string. O "while" abaixo com o "fgets"
        verifica se o retorno não é NULL, o que garante que paramos de imprimir
        quando chegamos ao fim do arquivo. Note que linhas vazias (que contêm
        apenas o "\n") também serão impressas. */
