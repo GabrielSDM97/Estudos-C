@@ -7,21 +7,24 @@ int main() {
   int i, teste;
 
   if (cadastros) {
-    /* A função "feof()" retorna 0 se o ponteiro não estiver no fim do arquivo.
-       Ao chegar no fim, retorna um valor diferente de zero (geralmente 1). */
+    /* feof() NAO preve o fim do arquivo, ele so avisa DEPOIS que uma
+       leitura tentou passar do fim e falhou:
+       - retorna 0 enquanto nenhuma leitura falhou;
+       - retorna != 0 so depois que fgetc/fgets tentou ler alem do fim. */
     for (i = 0; !feof(cadastros); i++) {
-      // A função "fgetc" pega um caractere por vez e avança o ponteiro para o próximo caractere.
+      // fgetc lê 1 caractere e avanca o ponteiro. Se já estava no fim, ele falha e retorna EOF (-1).
       nomes[i] = fgetc(cadastros);
     }
     nomes[i] = '\0';
 
-    /* Apesar da função "feof" ser eficiente para detectar o fim de um arquivo,
-      existem dois problemas ao usá-la como condição final no laço acima:
-      1º O "fgetc" acaba pegando o caractere EOF (-1) antes do "feof" detectar,
-      e o atribui ao último índice do vetor.
-      2º Quando o "feof" detecta o EOF, o contador "i" já foi incrementado,
-      fazendo com que "nomes[i] = '\0'" (fora do loop) atribua o '\0' a um
-      índice após o que recebeu o EOF. */
+    /* Por que o loop acima faz 1 volta a mais? Exemplo pratico:
+       Suponha i = 3 lendo o ULTIMO caractere valido:
+       1. nomes[3] recebe o caractere valido, ponteiro vai para o fim, mas feof ainda e 0.
+          Estar NO fim nao e erro, entao o teste !feof deixa entrar de novo.
+       2. i vira 4, nomes[4] = fgetc(...) tenta ler ALEM do fim, falha e recebe EOF (-1).
+          So AGORA o feof vira 1.
+       3. i vira 5, !feof e falso e o loop quebra, mas o estrago ja foi feito:
+          nomes[4] tem EOF e nomes[5] recebe '\0', deixando 1 lixo no meio da string. */
 
     // A função "fseek()" move o ponteiro no arquivo.
     // SEEK_SET: Início do arquivo.
@@ -29,10 +32,11 @@ int main() {
     // SEEK_END: Fim do arquivo.
     fseek(cadastros, 0, SEEK_SET);
 
-    // ---- Corrigindo o problema de "feof" ----
-    /* Para corrigir o problema da função "feof", basta colocar na condição de repetição
-       de um laço o próprio vetor "nomes[i]" e que seja diferente do valor de EOF, pois, quando este receber o valor de EOF,
-       finaliza o laço, e, fora do loop, o índice que tem o valor de EOF recebe "\0". */
+    // ---- Forma correta: testar o retorno do fgetc ----
+    /* Aqui o teste e feito DEPOIS de cada leitura, na hora certa:
+       (nomes[i] = fgetc(...)) != EOF lê e já testa o resultado.
+       Quando tentar ler alem do fim e receber EOF, o loop quebra na hora,
+       e nomes[i] = '\0' sobrescreve aquele EOF. Sem volta extra, sem lixo. */
     for (i = 0; (nomes[i] = fgetc(cadastros)) != EOF; i++) { }
     nomes[i] = '\0';
 
